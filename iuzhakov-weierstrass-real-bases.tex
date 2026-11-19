@@ -4,7 +4,7 @@
 \usepackage[margin=26mm]{geometry}
 \usepackage[hypertexnames=false,hidelinks,bookmarksnumbered=true]{hyperref}
 \hypersetup{pdftitle={Hausdorff dimension of Weierstrass cosine graphs for real bases},
-  pdfauthor={Timofei Iuzhakov}, pdfsubject={Version 1.0.0. Proposed proof of the Hausdorff dimension formula for the classical Weierstrass function at all real bases and with prescribed phases},
+  pdfauthor={Timofei Iuzhakov}, pdfsubject={Version 1.0.1. Proposed proof of the Hausdorff dimension formula for the classical Weierstrass function at all real bases and with prescribed phases},
   pdfkeywords={classical Weierstrass function, Hausdorff dimension, graph of the Weierstrass function, non-integer bases, prescribed phases, exact-dimensional measures}}
 \setlength{\emergencystretch}{2em}
 \newtheorem{theorem}{Theorem}[section]
@@ -15,7 +15,7 @@
 \newcommand{\E}{\mathbb E}
 \title{Hausdorff dimension of Weierstrass cosine graphs for real bases}
 \author{Timofei Iuzhakov}
-\date{\normalsize Version 1.0.0 --- manuscript for external review\\[2pt]19 November 2026}
+\date{\normalsize Version 1.0.1 --- manuscript for external review\\[2pt]19 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -81,7 +81,14 @@ the expected dimension throughout a range $\lambda_b<\lambda<1$
 \cite{bbr}. Keller gives a proof of this range by estimating the
 distribution of slopes at successive scales \cite{keller}. Shen
 establishes the classical cosine formula for every integer $b\ge2$
-throughout $1/b<\lambda<1$ \cite{shen}. Ren and Shen prove a graph
+throughout $1/b<\lambda<1$ \cite{shen}. In this integer-base model,
+Ledrappier's criterion gives the natural graph measure dimension
+$2-\alpha$ when the slope distribution has dimension one for
+Lebesgue-almost every base point \cite{ledrappier}, as stated in
+\cite[Theorem~2.2 and Corollary~2.3]{bbr}.
+For a phase shared by all terms, Ruan and Zhang prove the graph
+formula for every integer $b\ge7$, every $1/b<\lambda<1$ and every
+value of that phase \cite[Theorem~1.1]{rz}. Ren and Shen prove a graph
 dimension dichotomy for a fixed real-analytic periodic function at an
 integer base \cite{rs}. Theorem~F of Li, Pan, Tong and Xu gives the
 corresponding dichotomy for a fixed $C^r$ periodic function, $r>1$,
@@ -1515,19 +1522,27 @@ proof. Both assistants also contributed to the ongoing Lean~4 formalization
 of parts of the argument. Verification of the full theorem in Lean remains
 incomplete.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 \bibitem{mw} R. D. Mauldin and S. C. Williams, \href{https://sites.itservices.cas.unt.edu/~mauldin/papers/no60.pdf}{On the Hausdorff dimension of some graphs}, Trans. Amer. Math. Soc. 298 (1986), 793--803.
 \bibitem{hunt} B. R. Hunt, \href{https://doi.org/10.1090/S0002-9939-98-04387-1}{The Hausdorff dimension of graphs of Weierstrass functions}, Proc. Amer. Math. Soc. 126 (1998), 791--800.
+\href{https://user.eng.umd.edu/~bhunt/papers/hdimw.pdf}{Author's PDF}.
 \bibitem{bbr} K. Bara\'nski, B. B\'ar\'any and J. Romanowska,
 \href{https://doi.org/10.1016/j.aim.2014.07.033}{On the dimension of
 the graph of the classical Weierstrass function}, Adv. Math. 265
 (2014), 32--59.
+\href{https://arxiv.org/abs/1309.3759}{arXiv:1309.3759}.
 \bibitem{shen} W. Shen, \href{https://arxiv.org/abs/1505.03986}{Hausdorff dimension of the graphs of the classical Weierstrass functions}, Math. Z. 289 (2018), 223--266.
 \bibitem{keller} G. Keller, \href{https://doi.org/10.1214/15-AIHP711}{A simpler proof for the dimension of the graph of the classical Weierstrass function}, Ann. Inst. Henri Poincar\'e Probab. Stat. 53 (2017), 169--181.
-\bibitem{ren} H. Ren, \href{https://doi.org/10.1016/j.aim.2024.109587}{A dichotomy for the dimension of SRB measure}, Adv. Math. (2024), article 109587.
+\href{https://arxiv.org/abs/1406.3571}{arXiv:1406.3571}.
+\bibitem{ren} H. Ren, \href{https://doi.org/10.1016/j.aim.2024.109587}{A dichotomy for the dimension of SRB measure}, Adv. Math. 442 (2024), article 109587.
+\href{https://arxiv.org/abs/2208.04576}{arXiv:2208.04576}.
 \bibitem{rs} H. Ren and W. Shen,
 \href{https://doi.org/10.1007/s00222-021-01060-2}{A dichotomy for the
 Weierstrass-type functions}, Invent. Math. 226 (2021), 1057--1100.
+\href{https://arxiv.org/abs/2007.04312}{arXiv:2007.04312}.
 \bibitem{lptx} J. Li, W. Pan, Y. Tong and D. Xu, \href{https://arxiv.org/abs/2608.30744}{Dimensions of surface repellers and attractors of non-linear planar IFSs}, preprint (2026).
+\bibitem{ledrappier} F. Ledrappier, \href{https://doi.org/10.1090/conm/135/1185095}{On the dimension of some graphs}, in \emph{Symbolic Dynamics and its Applications} (P. Walters, ed.), Contemp. Math. 135 (1992), 285--293.
+\bibitem{rz} H. Ruan and N. Zhang, \href{https://doi.org/10.4208/ata.OA-SU8}{Hausdorff dimension of a class of Weierstrass functions}, Anal. Theory Appl. 36 (2020), 482--496.
+\href{https://www.global-sci.com/ata/article/view/8206}{Journal page}.
 \end{thebibliography}
 \end{document}

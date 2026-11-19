@@ -4,7 +4,9 @@ title: "Hausdorff dimension of Weierstrass cosine graphs for real bases"
 authors:
   - family-names: "Iuzhakov"
     given-names: "Timofei"
-version: "1.0.0"
+version: "1.0.1"
+date-released: 2026-11-19
+url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1"
 keywords:
   - classical Weierstrass function
   - Hausdorff dimension
@@ -18,6 +20,7 @@ preferred-citation:
     - family-names: "Iuzhakov"
       given-names: "Timofei"
   title: "Hausdorff dimension of Weierstrass cosine graphs for real bases"
-  version: "1.0.0"
-  notes: "Manuscript for external review, dated 19 November 2026."
+  version: "1.0.1"
+  url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1"
+  notes: "Manuscript for external review, version 1.0.1, dated 19 November 2026."
   year: 2026
