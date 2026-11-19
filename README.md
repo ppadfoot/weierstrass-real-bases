@@ -1,8 +1,8 @@
 # Hausdorff dimension of Weierstrass cosine graphs for real bases
 
-**Timofei Iuzhakov** · Manuscript version **1.0.1** · 19 November 2026
+**Timofei Iuzhakov** · Manuscript version **1.0.2** · 19 November 2026
 
-[Archived preprint (DOI 10.5281/zenodo.24378509)](https://doi.org/10.5281/zenodo.24378509) · [Read the paper (PDF)](iuzhakov-weierstrass-real-bases.pdf) · [LaTeX source](iuzhakov-weierstrass-real-bases.tex) · [BibTeX](CITATION.bib)
+[Archived preprint (DOI 10.5281/zenodo.24379076)](https://doi.org/10.5281/zenodo.24379076) · [Read the paper (PDF)](iuzhakov-weierstrass-real-bases.pdf) · [LaTeX source](iuzhakov-weierstrass-real-bases.tex) · [BibTeX](CITATION.bib)
 
 This paper addresses the **Hausdorff dimension of the graph of the classical Weierstrass function** for real, possibly non-integer bases. In the zero-phase case the function is the cosine series
 
@@ -23,11 +23,13 @@ The lower bound is the main difficulty. The argument estimates how much time a r
 
 ## Version and verification
 
-Version 1.0.1 expands the historical references, adds open copies of cited papers and supplies a permanent citation link. The author used GPT (OpenAI) and Claude (Anthropic) to test conjectures, derive and check formulas, draft arguments, and help formalize parts of the proof in Lean 4. Machine verification of the full theorem remains incomplete. The archival copy adds links to the GitHub release and Zenodo DOI on the title page. The [SHA-256 checksums](SHA256SUMS) identify its PDF and LaTeX source. The original release files remain available under the v1.0.1 tag.
+Version 1.0.2 distinguishes the fixed contraction rate from the auxiliary parameter in the ball-mass lemma, gives the order of limits in Section 6 and makes the normalization in Section 5 explicit. The [SHA-256 checksums](SHA256SUMS) identify the archived PDF and LaTeX source for version 1.0.2.
+
+Version 1.0.1 expands the historical references, adds open copies of cited papers and supplies a permanent citation link. The author used GPT (OpenAI) and Claude (Anthropic) to test conjectures, derive and check formulas, draft arguments, and help formalize parts of the proof in Lean 4. Machine verification of the full theorem remains incomplete. The previous release is available on [GitHub](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1) and [Zenodo](https://doi.org/10.5281/zenodo.24378509).
 
 ## Citation
 
-Timofei Iuzhakov. *Hausdorff dimension of Weierstrass cosine graphs for real bases*. Manuscript, version 1.0.1, 19 November 2026. [Version 1.0.1](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24378509) · [Citation metadata](CITATION.cff)
+Timofei Iuzhakov. *Hausdorff dimension of Weierstrass cosine graphs for real bases*. Manuscript, version 1.0.2, 19 November 2026. [Version 1.0.2](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24379076) · [Citation metadata](CITATION.cff)
 
 ## По-русски
 

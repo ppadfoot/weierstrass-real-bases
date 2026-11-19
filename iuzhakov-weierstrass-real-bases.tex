@@ -4,7 +4,7 @@
 \usepackage[margin=26mm]{geometry}
 \usepackage[hypertexnames=false,hidelinks,bookmarksnumbered=true]{hyperref}
 \hypersetup{pdftitle={Hausdorff dimension of Weierstrass cosine graphs for real bases},
-  pdfauthor={Timofei Iuzhakov}, pdfsubject={Version 1.0.1. Proposed proof of the Hausdorff dimension formula for the classical Weierstrass function at all real bases and with prescribed phases},
+  pdfauthor={Timofei Iuzhakov}, pdfsubject={Version 1.0.2. Proposed proof of the Hausdorff dimension formula for the classical Weierstrass function at all real bases and with prescribed phases},
   pdfkeywords={classical Weierstrass function, Hausdorff dimension, graph of the Weierstrass function, non-integer bases, prescribed phases, exact-dimensional measures}}
 \setlength{\emergencystretch}{2em}
 \newtheorem{theorem}{Theorem}[section]
@@ -15,8 +15,10 @@
 \newcommand{\E}{\mathbb E}
 \title{Hausdorff dimension of Weierstrass cosine graphs for real bases}
 \author{Timofei Iuzhakov}
-\date{\normalsize Version 1.0.1 --- manuscript for external review --- 19 November 2026\\[2pt]
-  {\small \href{https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1}{\underline{GitHub release and source}}\quad\textperiodcentered\quad\href{https://doi.org/10.5281/zenodo.24378509}{\underline{Zenodo DOI 10.5281/zenodo.24378509}}}}
+\date{\normalsize Version 1.0.2 --- manuscript for external review --- 19 November 2026\\[2pt]
+  {\small Version 1.0.2 on
+  \href{https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2}{\underline{GitHub}}
+  and \href{https://doi.org/10.5281/zenodo.24379076}{\underline{Zenodo (DOI 10.5281/zenodo.24379076)}}}}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -796,12 +798,15 @@ On averaging over $z,J_0,h$, the omitted mass is $o(1)$ by the two
 deletion estimates. Lemma~\ref{lem:full-ball} below applies separately
 to each pair $(\nu_\zeta,\eta_{z,J_0,h})$, including different
 representations of the same $\zeta$. Take $\tau=r^u$ with $u$ strictly
-below the exponent in (B5) expressed in $r$. At fixed $M$, the
-averaged collision term divided by $\tau$ tends to zero. Let $M\to\infty$,
-then reanchor
-sampled $x\in[1,2]$; its centered test on $[0,3]$ dominates the
+below the exponent in (B5) expressed in $r$. At fixed $K>1$, the
+averaged collision term divided by $\tau$ tends to zero. Let $K\to\infty$,
+then reanchor at sampled $x\in[1,2]$. The centered ball mass on
+$[0,3]$, with normalized Lebesgue input, is at least one third of the
 anchored occupation on $[-1,1]$ in the Haar-coset environment
-$z+v_C(wh)+v_B(vx)$. Extend to each fixed $T$ by a fixed physical
+$z+v_C(wh)+v_B(vx)$. Restricting the sampled center to $[1,2]$
+costs a factor of three in probability. Taking a smaller strict
+exponent absorbs the factor in the occupation threshold.
+Extend to each fixed $T$ by a fixed physical
 rescaling, and to arbitrary radii by geometric interpolation. This
 proves (B1) by $s'\uparrow s$, $t'\uparrow t$, $J\to\infty$.
 
@@ -810,19 +815,19 @@ proves (B1) by $s'\uparrow s$, $t'\uparrow t$, $J\to\infty$.
 \begin{lemma}[Full ball mass from retained collisions]\label{lem:full-ball}
 Let $\nu$ be a probability measure on $\mathbb R$ and let $0\le\eta\le\nu$.
 Write $\mathcal C_R(\eta)=(\eta\otimes\eta)\{|y-y'|\le R\}$.
-For $R,\tau>0$ and $M>1$,
+For $R,\tau>0$ and $K>1$,
 \[
  \nu\{y:\nu([y-R,y+R])>\tau\}
- \le 1-\|\eta\|+\frac{3}{M}+\frac{M}{\tau}\mathcal C_R(\eta).
+ \le 1-\|\eta\|+\frac{3}{K}+\frac{K}{\tau}\mathcal C_R(\eta).
 \]
 \end{lemma}
 \begin{proof}
 Partition the line into half-open cells $I$ of length $R$. If
-$\nu(3I)>M\eta(I)$, summing $\eta(I)$ over these cells costs at most
-$3/M$, since the concentric triples have overlap three. In any other
+$\nu(3I)>K\eta(I)$, summing $\eta(I)$ over these cells costs at most
+$3/K$, since the concentric triples have overlap three. In any other
 cell containing a point of the displayed event,
-$\tau<\nu(3I)\le M\eta(I)$. Its retained mass is at most
-$(M/\tau)\eta(I)^2$. Pairs from the same cell have distance at most
+$\tau<\nu(3I)\le K\eta(I)$. Its retained mass is at most
+$(K/\tau)\eta(I)^2$. Pairs from the same cell have distance at most
 $R$, so $\sum_I\eta(I)^2\le\mathcal C_R(\eta)$. The contribution of
 $\nu-\eta$ is at most $1-\|\eta\|$.
 \end{proof}
@@ -876,14 +881,38 @@ For a length-$k$ status word $P$ retain the unnormalized input on the successive
 \]
 Indeed, for a pair of non-neighboring children the derivative of the difference of the two realized ordinates with respect to transverse translation has modulus at least a fixed constant times $h^n$. Average over an extra Haar-preserving translation $u\in[0,1]$, discard all path restrictions there, and keep this necessary derivative bound at the translated environment. Uniform continuity of that derivative gives a finite partition of $[0,1]$ on each of whose intervals meeting the bound the derivative has constant sign and a uniform positive lower modulus. Change variables on it to bound the integral of the kernel by $C_n$, uniformly in the input pair. For neighbors use that $K_r$ is an autocorrelation and hence defines a positive semidefinite bilinear form. Bound each mixed energy by half the sum of the two diagonal energies. Its multiplicity in the good case is at most $Ng^{nt}$ since both labels are good; the unrestricted multiplicity is $N$. The child masses carry factors $N^{-2}$. A diagonal rescaling costs $g^{-n}$ in the kernel. Discard the first label condition in each diagonal and average in the phase for that deterministic child, whose transformed phase is translated Haar. This gives the displayed recursion. The rescaled model for $F$ acquires a shifted existing weight, with the same complexity; the extra weight for $G$ enters only its neighbor test.
 
-At scale $r_k=g^{nk}$ retain all words with at most $\epsilon k$ bad labels. The discarded mass on average is at most $e_n/\epsilon$: before imposing any labels, the expected bad probability at each depth is at most $e_n$ by averaging the deterministic physical cells and their shifted Haar states. There are at most $\exp(kH(\epsilon))$ retained words for $0<\epsilon<1/2$, with binary entropy $H$. Iterating the recursion and applying the triangle inequality to the kernel seminorm of their sum bounds the retained collision probability at distance $Cr_k$ by
+At scale $r_k=g^{nk}$ retain all words with at most $\epsilon k$ bad labels. The discarded mass on average is at most $e_n/\epsilon$: before imposing any labels, the expected bad probability at each depth is at most $e_n$ by averaging the deterministic physical cells and their shifted Haar states. There are at most $\exp(kH(\epsilon))$ retained words for $0<\epsilon<1/2$, with binary entropy $H$. Iterating the recursion and applying the triangle inequality to the kernel seminorm of their sum bounds the retained collision probability at distance $R_0r_k$, for any fixed $R_0>0$, by
 \[
- C_{n,C}(k+1)r_k^{\,t(1-\epsilon)-2H(\epsilon)/(na)} .
+ C_{n,R_0}(k+1)r_k^{\,t(1-\epsilon)-2H(\epsilon)/(na)} .
 \]
-Use the kernel at $2Cr_k$, where a close pair contributes at least $1/(4Cr_k)$. Apply Lemma~\ref{lem:full-ball} at $R=Cr_k$ to the full law and
-the submeasure retained at this scale. For any exponent strictly below
-the displayed collision exponent, take $\tau$ equal to $r_k$ to that
-power, let $k\to\infty$ at fixed $n,\epsilon,M$, then let $M\to\infty$. Fixed $n$ allows interpolation between the $r_k$ with a fixed dilation. Choose $n\to\infty$, $\epsilon\downarrow0$ with $e_n/\epsilon\to0$, and reanchor on $[1,2]\subset[0,3]$ to obtain (D). Fixed larger anchored domains follow by dilating the physical input. All bounds used here are for fixed finite weight complexity.
+Here the kernel at $2R_0r_k$ is at least $1/(4R_0r_k)$ on a close pair.
+Throughout the limit argument $M=-\log|C|$ is the fixed contraction rate
+of the conjugate embedding.
+Fix an exponent $0<\sigma<t$ and then $0<\epsilon<1/2$ with
+$\sigma<t(1-\epsilon)$. For every sufficiently large block size $n$,
+$\beta_{n,\epsilon}=t(1-\epsilon)-2H(\epsilon)/(na)>\sigma$.
+Let $p(r,R_0)$ be the supremum, over the allowed parameters at the fixed
+weight complexity, of the probability that a sampled ordinate has
+mass greater than $r^{\sigma}$ in its $R_0r$-ball. Applying
+Lemma~\ref{lem:full-ball} with $\tau=r_k^{\sigma}$ and averaging gives, for
+each auxiliary $K>1$,
+\[
+ p(r_k,R_0)\le \frac{e_n}{\epsilon}+\frac{3}{K}
+           +K C_{n,R_0}(k+1) r_k^{\beta_{n,\epsilon}-\sigma}.
+\]
+If $r_{k+1}\le r\le r_k$, the ball of radius $R_0r$ is contained in
+the ball of radius $R_0g^{-n}r_{k+1}$ and $r^{\sigma}\ge r_{k+1}^{\sigma}$.
+Thus $p(r,R_0)\le p(r_{k+1},R_0g^{-n})$. At fixed $n,\epsilon,K$,
+letting $k\to\infty$ removes the last term, also for this enlarged
+radius coefficient. Letting $K\to\infty$ gives
+$\limsup_{r\downarrow0}p(r,R_0)\le e_n/\epsilon$ for every sufficiently
+large $n$. Now let $n\to\infty$ at the chosen $\epsilon$. The uniform
+estimate $e_n\to0$ gives the sampled bound at every $\sigma<t$.
+Reanchor at $x\in[1,2]\subset[0,3]$. For any target exponent $u<\sigma$,
+the fixed normalization factors are absorbed by the slack $\sigma-u$.
+Equation~\eqref{eq:fixed-dilation} extends the anchored bound to each
+fixed interval $[-T,T]$. Since $t$ may be chosen arbitrarily close to
+the endpoint in (D), this proves the proposition.
 
 \end{proof}
 
@@ -1304,19 +1333,19 @@ estimate gives
 for each fixed $A'>0$, by starting the recursion at $2A'r_k$.
 For each $w$, apply Lemma~\ref{lem:full-ball} with
 $\nu=\nu^{j,\phi}_w$, retained measure $\widetilde\mu_w$, $R=A r_k$
-and $\tau=r_k^{s'}$. Averaging over $w$ bounds the probability in
+and $\tau=r_k^{s'}$, with auxiliary parameter $K>1$. Averaging over $w$ bounds the probability in
 \eqref{eq:uniform-slope-information} by
 \[
- e_n/\eta+3/M+M C_{n,A}(k+1)r_k^{t_*-s'} .
+ e_n/\eta+3/K+K C_{n,A}(k+1)r_k^{t_*-s'} .
 \]
 Thus if $s'<t_*$ the limsup of
 the probability in \eqref{eq:uniform-slope-information} on this
-scale sequence is at most $e_n/\eta+3/M$. The same conclusion holds
+scale sequence is at most $e_n/\eta+3/K$. The same conclusion holds
 between consecutive scales by increasing the fixed radius constant
 by $g^{-n}$. Here $n$ stays fixed as $k\to\infty$. Now choose $t$
 strictly between the desired $s'$ and the upper endpoint in the
 induction step. Send $n\to\infty$ with $\eta\to0$ and
-$e_n/\eta\to0$, and then send $M\to\infty$. This proves the
+$e_n/\eta\to0$, and then send $K\to\infty$. This proves the
 uniform information bound. The changing submeasure in this argument
 is used only at its own scale.
 
