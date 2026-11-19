@@ -5,6 +5,7 @@ authors:
   - family-names: "Iuzhakov"
     given-names: "Timofei"
 version: "1.0.1"
+doi: "10.5281/zenodo.24378509"
 date-released: 2026-11-19
 url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1"
 keywords:
@@ -22,5 +23,6 @@ preferred-citation:
   title: "Hausdorff dimension of Weierstrass cosine graphs for real bases"
   version: "1.0.1"
   url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1"
+  doi: "10.5281/zenodo.24378509"
   notes: "Manuscript for external review, version 1.0.1, dated 19 November 2026."
   year: 2026
