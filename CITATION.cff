@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript using the preferred citation below."
+title: "Hausdorff dimension of Weierstrass cosine graphs for real bases"
+authors:
+  - family-names: "Iuzhakov"
+    given-names: "Timofei"
+version: "1.0.0"
+keywords:
+  - classical Weierstrass function
+  - Hausdorff dimension
+  - graph of the Weierstrass function
+  - non-integer bases
+  - prescribed phases
+  - exact-dimensional measures
+preferred-citation:
+  type: unpublished
+  authors:
+    - family-names: "Iuzhakov"
+      given-names: "Timofei"
+  title: "Hausdorff dimension of Weierstrass cosine graphs for real bases"
+  version: "1.0.0"
+  notes: "Manuscript for external review, dated 19 November 2026."
+  year: 2026

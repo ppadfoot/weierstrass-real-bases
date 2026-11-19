@@ -1,0 +1,1533 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=26mm]{geometry}
+\usepackage[hypertexnames=false,hidelinks,bookmarksnumbered=true]{hyperref}
+\hypersetup{pdftitle={Hausdorff dimension of Weierstrass cosine graphs for real bases},
+  pdfauthor={Timofei Iuzhakov}, pdfsubject={Version 1.0.0. Proposed proof of the Hausdorff dimension formula for the classical Weierstrass function at all real bases and with prescribed phases},
+  pdfkeywords={classical Weierstrass function, Hausdorff dimension, graph of the Weierstrass function, non-integer bases, prescribed phases, exact-dimensional measures}}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Leb}{\operatorname{Leb}}
+\newcommand{\E}{\mathbb E}
+\title{Hausdorff dimension of Weierstrass cosine graphs for real bases}
+\author{Timofei Iuzhakov}
+\date{\normalsize Version 1.0.0 --- manuscript for external review\\[2pt]19 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For real $b>1$ and $b^{-1}<\lambda<1$, the conjectured Hausdorff dimension
+of the graph of the classical Weierstrass function
+$W(x)=\sum_{j\ge0}\lambda^j\cos(2\pi b^j x)$ is
+$2+\log\lambda/\log b$. We present a proposed proof for every real
+base. The argument also gives this dimension for the graph with any
+prescribed sequence of phase offsets and for its natural measure on
+each bounded interval of positive length. The lower bound is reduced
+to an estimate for small increments of a two-sided series. At
+transcendental bases the associated phases are independent under Haar
+measure. At algebraic bases the proof uses either the finite number of
+predecessors in the phase group or a contracting conjugate. In the
+latter case reciprocal changes of base and transverse differentiation
+propagate the increment estimate between amplitudes.
+\end{abstract}
+
+\section{The graph dimension problem}\label{sec:intro}
+Let $b>1$, $b^{-1}<\lambda<1$, $\T=\mathbb R/\mathbb Z$ and
+$\alpha=-\log\lambda/\log b\in(0,1)$. For prescribed phases
+$\varphi=(\varphi_j)_{j\ge0}\in\T^{\{0,1,\ldots\}}$, write
+\[
+ W_\varphi(x)=\sum_{j=0}^{\infty}\lambda^j
+              \cos\bigl(2\pi(b^jx+\varphi_j)\bigr),\qquad x\in\mathbb R.
+\]
+Write $W=W_\varphi$ when the phases are fixed. The series converges
+uniformly. Splitting the sum at the frequency nearest $1/|u|$ bounds
+$|W(x+u)-W(x)|$ by a constant times $|u|^\alpha$. The resulting
+H\"older cover gives $2-\alpha$ as an upper bound for graph dimension.
+The question is whether this upper bound is attained.
+
+\begin{theorem}[Graph and graph measure]\label{thm:main}
+For every real $b>1$, every $b^{-1}<\lambda<1$, every prescribed
+phase sequence $\varphi$, and every interval $I\subset\mathbb R$ of
+positive length,
+\[
+ \dim_{\mathrm H}\{(x,W_\varphi(x)):x\in I\}=2-\alpha
+                    =2+\frac{\log\lambda}{\log b}.
+\]
+If $I$ is bounded, let $\mu_I$ be the image of normalized Lebesgue
+measure on $I$ under $x\mapsto(x,W_\varphi(x))$. This measure is
+exact dimensional. For $\mu_I$-almost every $z\in\mathbb R^2$,
+\[
+ \lim_{r\downarrow0}\frac{\log\mu_I(B(z,r))}{\log r}=2-\alpha,
+\]
+where $B(z,r)$ is the Euclidean ball of radius $r$.
+\end{theorem}
+
+\subsection{The conjecture and earlier results}\label{sec:history}
+The classical Weierstrass function is the case $\varphi_j=0$ for all $j$.
+Mauldin and Williams record the real-base cosine conjecture on p.~794
+of \cite{mw}. Their Theorem~1 identifies the graph dimensions of the
+one-sided and two-sided series by addition of a Lipschitz function.
+For fixed $\alpha$ they obtain a lower bound $2-\alpha-C/\log b$ for
+sufficiently large $b$. Hunt obtains $2-\alpha$ for each real base
+for almost every sequence of independent uniform phases \cite{hunt}.
+In Theorem~\ref{thm:main} the phases may be prescribed in advance,
+including the sequence consisting entirely of zeros.
+
+For integer bases, Bara\'nski, B\'ar\'any and Romanowska prove
+the expected dimension throughout a range $\lambda_b<\lambda<1$
+\cite{bbr}. Keller gives a proof of this range by estimating the
+distribution of slopes at successive scales \cite{keller}. Shen
+establishes the classical cosine formula for every integer $b\ge2$
+throughout $1/b<\lambda<1$ \cite{shen}. Ren and Shen prove a graph
+dimension dichotomy for a fixed real-analytic periodic function at an
+integer base \cite{rs}. Theorem~F of Li, Pan, Tong and Xu gives the
+corresponding dichotomy for a fixed $C^r$ periodic function, $r>1$,
+also for integer bases \cite{lptx}. For conditional slope measures,
+Ren's dimension theorem for analytic skew products overlaps the
+integer-base case of Theorem~\ref{thm:algebraic-slope-dimension}
+\cite{ren}.
+
+\subsection{Proof by arithmetic type}\label{sec:routes}
+The common estimate concerns the amount of time a rescaled increment
+spends within distance $r$ of zero. The assertion $\mathcal S_s$,
+defined in \eqref{eq:anchor}, controls that time at each exponent
+strictly below $s$ under Haar measure on a coset of the phase group.
+Uniformity over cosets is what permits an arbitrary deterministic
+phase sequence. Proposition~\ref{prop:graph} converts $\mathcal S_s$
+into graph dimension at least $1+s(1-\alpha)$. Thus it suffices
+to establish $\mathcal S_1$ for the unweighted cosine series.
+
+\paragraph{Transcendental bases.}
+Let $H_b$ be the closure of $x\mapsto (b^j x\bmod 1)_{j\in\mathbb Z}$.
+For any nonzero finite integer vector $(h_j)$, the sum $\sum_j h_j b^j$
+is nonzero when $b$ is transcendental: multiplying the Laurent
+polynomial by a suitable power of its variable gives a nonzero integer
+polynomial. No nontrivial character annihilates $H_b$, so
+$H_b=\T^{\mathbb Z}$. Its Haar coordinates $z_j$ are therefore independent
+and uniform. We apply Hunt's three-term convolution estimate
+\cite[pp.~797--798]{hunt} to these Haar increments. For each $t\ne0$ choose $k\in\mathbb Z$ with
+$1/(4b)<b^k|t|\le1/4$. In the unweighted two-sided increment
+\eqref{eq:increment}, the independent terms with indices $k,k-1,k-2$
+have arcsine laws. The amplitude of each is
+$2\lambda^j|\sin(\pi b^jt)|\asymp_b |t|^\alpha$.
+Rescaling gives each density an $L^{3/2}$ norm
+$O(|t|^{-\alpha/3})$. Young's convolution inequality gives their
+sum a density bounded by $C|t|^{-\alpha}$, a bound preserved under
+convolution with the law of the remaining independent terms.
+Integration on $[-T,T]$ bounds the expected time within $Ar$ of
+zero by $C_{A,T}r$, since $\alpha<1$. Markov's inequality gives
+$\mathcal S_1$ for the unweighted cosine. Equivalently for the graph
+argument, the cutoff $B_q$ of Appendix~\ref{app:graph} satisfies
+$\int B_q\,dm_{H_b}\le C\lambda^q$. Jensen's inequality yields
+$\int -\log\min(1,B_q)\,dm_{H_b}\ge q\log(1/\lambda)-\log C$.
+For each prescribed sequence of phases the character estimate in that
+appendix identifies the limit on its scale windows with this same
+product Haar law for Lebesgue-almost every physical starting point.
+
+\paragraph{Algebraic bases with sufficiently many predecessors.}
+Let $P$ be a primitive irreducible integer polynomial of $b$, let
+$d=\deg P$, and write $p=|P(0)|$, $A=|\operatorname{lc}(P)|$.
+Suppose $p\ge b\lambda$. Then $p\ge2$. Given a central block of
+$d$ phases, the preceding phase has $p$ equiprobable choices.
+Theorem~\ref{thm:algebraic-slope-dimension} gives the dimension of
+the resulting conditional slope measure. For
+$\gamma=(b\lambda)^{-1}$ its dimension is
+$\min(1,\log p/\log(1/\gamma))=1$, including $p=b\lambda$.
+Estimate~\eqref{eq:uniform-slope-information} and
+Section~\ref{sec:secant} give $\mathcal S_1$ uniformly over phase
+cosets.
+
+\paragraph{Algebraic bases with a contracting conjugate.}
+If $p<b\lambda$, the other conjugates $b_2,\ldots,b_d$ satisfy
+\[
+ \prod_{i=2}^{d}|b_i|=\frac{p}{Ab}<\frac{\lambda}{A}<1.
+\]
+The empty product for degree one is one, so this case has $d\ge2$.
+Since $P(0)\ne0$, at least one conjugate $C$ satisfies $0<|C|<1$.
+Use $B=b$ and compare
+displacements at $B$ with displacements along a real line at $C$.
+Proposition~\ref{prop:two} gives $\mathcal S_1$ for these two
+embeddings. Its proof distinguishes the expansion rate
+$L=\log|B|$ and the contraction rate $M=-\log|C|$.
+For $L=M$, Section~\ref{sec:equal} combines a strip estimate with
+the initial exponent $1/2$ of Section~\ref{sec:ray-half-seed}.
+For $L\ne M$, Proposition~\ref{prop:transfer} changes the order
+of the embeddings, and \eqref{eq:descent} increases the exponent
+by transverse differentiation. The recursion in
+Section~\ref{sec:closure} combines these steps with the critical
+estimate of Section~\ref{sec:weighted-critical-ray}.
+For example, at the golden ratio $b=(1+\sqrt5)/2$ and
+$\lambda=b^{-1/2}$, one has $p=1<b\lambda$ and $C=-1/b$.
+The equal-rate argument gives the value $3/2$.
+These cases exhaust the real bases and give Theorem~\ref{thm:main}
+by Proposition~\ref{prop:graph}.
+
+\section{Phase groups and reciprocal transfer}\label{sec:embeddings}
+Let $B,C$ be conjugate algebraic numbers, $b=|B|=e^L>1$,
+$\rho=|C|=e^{-M}<1$. Here and on reversing the pair, at most one of $B,C$ is
+nonreal. Put $E_D=\mathbb R$ for a real $D$ and $E_D=\mathbb C$
+otherwise. Write
+\[
+ v_D(e)_j=\operatorname{Re}(eD^j)\pmod1,\qquad
+ p_j(v,D)=\operatorname{Re}\big(v(D/|D|)^j\big).
+\]
+Use the compact subgroup $H_B=\overline{v_B(E_B)}$ of $\T^{\mathbb Z}$, with closure in the product topology. It contains
+$v_C(E_C)$, as the annihilator consists of the Laurent polynomials
+vanishing at $B$. Reversal $Rz=(z_{-j})_j$ maps $H_B$ onto
+$H_{1/C}$, by conjugation and character separation. Write $(Sz)_j=z_{j+1}$ for the shift. The multiplier of the reversed
+group is the field element $1/C$ with its sign or complex argument.
+
+Test real displacements $t$ along fixed unit rays $v\in E_B$ and
+$w\in E_C$. At a real embedding we permit either sign. For the unique
+nonreal embedding, if its angle $\vartheta$ is an irrational multiple
+of $\pi$, permit arbitrary unit rays. Otherwise fix a unit $v_0$
+with $\operatorname{Re}(v_0e^{ij\vartheta})\ne0$ for all $j$;
+permit the finite orbits under rotation by $\vartheta$, conjugation
+and sign of $v_0$. These choices work simultaneously for reciprocals.
+Write $c=(c_j)$ for any finite product of factors $p_j(v,D)$ from
+this family and their reversals, and optionally a constant sign.
+Such families with at most $k$ factors are compact, and invariant under
+translations of the subscript and reversal. For each fixed $k$ there
+are $c_k>0,N_k<\infty$ such that every $N_k$ consecutive indices
+contain one where $|c_j|\ge c_k$, uniformly in the family. For a
+finite rotation group each permitted factor is bounded away from
+zero. For irrational rotation write the complex factors as
+$\cos(x+\phi)$, taking absolute values to discard real signs.
+Each resulting trigonometric polynomial is nonzero, since its
+highest Fourier coefficient has modulus $2^{-k'}$ for $k'\le k$
+factors. Compactness and the density of the rotation orbit establish
+the uniform finite-window assertion.
+
+Write $\lambda=e^{-a}\in(1/b,1)$ and define the scalar rough function
+\begin{equation}\label{eq:increment}
+ F_z(t)=\sum_{j\in\mathbb Z}\lambda^jc_j
+   \{f(z_j+b^jp_j(v,B)t)-f(z_j)\},\qquad f(y)=\cos(2\pi y).
+\end{equation}
+The positive tail converges geometrically. On bounded intervals the
+negative tail is dominated by a constant times $\sum_{j<0}(b\lambda)^j$.
+For a coset $\omega+H_B$ write $m_{\omega+H_B}$ for its translate of
+Haar probability. For $0<s\le1$ write $\mathcal S_s$ for the following
+assertion. For every $0<h<s$, $T,A>0$ and every fixed upper bound on
+the number of weight factors,
+\begin{equation}\label{eq:anchor}
+ \lim_{r\downarrow0}\ \sup_{\omega,v,c}
+ m_{\omega+H_B}\!\left\{z:\int_{-T}^{T}
+       \mathbf{1}_{\{|F_z(t)|\le Ar\}}\,dt>r^h\right\}=0.
+\end{equation}
+The supremum ranges over cosets, permitted rays and products of the
+specified complexity at fixed multipliers and amplitude. For the
+unweighted physical cosine alone, the same notation restricts
+\eqref{eq:anchor} to $c_j=1$, $B=b$ and $v=1$. Recurring estimates
+can increase that bound by one or more fixed units. Physical dilation
+and reanchoring replace $v$ by $v(B/b)^n$ and $c_j$ by $c_{j+n}$.
+They preserve the parameter families. A fixed phase translate absorbs
+a change from $f$ to $f'$ apart from its fixed normalization.
+More explicitly, write $F_z^{v,c}$ when the ray and weights are displayed.
+For each integer $m\ge0$, reindexing both convergent tails gives
+\begin{equation}\label{eq:fixed-dilation}
+ F_z^{v,c}(b^m t)=\lambda^{-m}
+ F_{S^{-m}z}^{\,v(B/b)^{-m},\, (c_{i-m})_{i\in\mathbb Z}}(t).
+\end{equation}
+Thus an anchored estimate on $[-1,1]$ with target radius $r$ gives
+\eqref{eq:anchor} for any fixed $T,A>0$. Choose $m$ with $b^m\ge T$.
+After the change of variable the occupation time is bounded by $b^m$
+times the test on $[-1,1]$ at radius $\lambda^m Ar$. To obtain the
+threshold $r^h$, apply that test with $h<h'<s$. The inequality
+$b^m(\lambda^m Ar)^{h'}\le r^h$ holds for all sufficiently small $r$.
+The shift transports coset Haar measure to coset Haar measure. For the
+unweighted real cosine the transformed ray and weights are all one.
+
+\begin{proposition}[Reciprocal transfer]\label{prop:transfer}
+Suppose $\rho<\gamma=(b\lambda)^{-1}<1$. If $\mathcal S_s$ holds for the
+dual system $(1/C,1/B,\gamma)$ at each fixed finite weight complexity,
+then $\mathcal S_s$ holds for $(B,C,\lambda)$.
+\end{proposition}
+\begin{proof}
+The past slope and its remainder for $0<|t|\le1$ are
+\[
+ H(z)=\sum_{l\ge1}\gamma^l c_{-l}p_{-l}(v,B)f'(z_{-l}),
+ \qquad L_t(z)=F_z(t)/t-H(z).
+\]
+The new weight in $H$ depends on the fixed ray $v$ and
+on $l$ alone. For some $h_0$ with
+$\log\gamma/\log\rho<h_0<1$, uniformly in $t$ and $|h|\le1$,
+\[
+ |L_t(z+v_C(wh))-L_t(z)|\le C|h|^{h_0}.
+\]
+For the nonnegative indices use
+$C|h|\sum_{j\ge0}(b\lambda\rho)^j$. For the negative-index Taylor
+remainder the bound is
+$C\sum_{l\ge1}\gamma^l b^{-l}|t|\min(1,\rho^{-l}|h|)$.
+Choose $h_0$ sufficiently close to $\log\gamma/\log\rho$ that
+$(\gamma/b)\rho^{-h_0}<1$. Splitting the series of $H$ gives
+$|H(z+v_C(wh))-H(z)|\le C|h|^{\log\gamma/\log\rho}$.
+At $h=\rho^m y$, $|y|\le2$, its increment divided by $\gamma^m$
+is a dual increment, up to a fixed nonzero factor and an error
+$O((\rho/\gamma)^m)$. The dual physical ray is $w(C/\rho)^{-m}$,
+the environment is the shifted reversal $S^mRz$ with the constant
+phase compensation for $f'$, and the weights at dual index $i$ are
+$c_{-m-i}p_{-m-i}(v,B)$. Indeed $l=m+i$, so
+$C^{-l}\rho^m=(C/\rho)^{-m}(1/C)^i$, and the unrepresented
+indices $i\le-m$ contribute $O(\sum_{i\le-m}(\gamma/\rho)^i)$.
+
+We now select the environments for the estimate. Take $0<\sigma<s$ and
+$\kappa=1/K$ with $K\ge3$. Split $r^{1-\kappa}<|t|\le1$ into
+bands $r^{(j+1)\kappa}<|t|\le r^{j\kappa}$, $0\le j\le K-2$,
+and set $\Delta=r^{1-(j+1)\kappa}$. Take
+$m_D=\lfloor\log\Delta/\log\gamma\rfloor$ and
+$m_i=\lceil h_1m_{i+1}\rceil$ backwards, where
+$h_1=\log\gamma/(h_0\log\rho)<1$. Fix $D$ with $h_1^D\le\kappa$.
+The differences $d_i=m_{i+1}-m_i$ tend to infinity and
+\[
+ \rho^{h_0m_i}\le\gamma^{m_{i+1}},\quad
+ (\rho/\gamma)^{m_i}\le\gamma^{d_i},\quad
+ m_0\le\kappa m_D+O(1),\quad \Delta\asymp\gamma^{m_D}.
+\]
+For each of these finitely many band/stage choices test $\mathcal S_s$ on
+the displayed dual environment, ray and weights at radius
+$A\gamma^{d_i}$ with exponent $\sigma$ and $|y|\le2$.
+Delete the failing original environments. The resulting set $G_r$
+has complementary mass $o(1)$ uniformly. The choice of $G_r$ is independent of the particular
+secant $t$ and of the transverse translation parameter.
+
+Fix a starting environment $z_0$ and $t$ in the chosen band. For $h\in[0,1]$ set $z=z_0+v_C(wh)$ and
+retain $h$ for which $z\in G_r$ and $|F_z(t)|\le r$.
+Use nested dyadic intervals of lengths
+$2^{-\lceil m_i\log_2(1/\rho)\rceil}\asymp\rho^{m_i}$.
+Take a retained $h_*$ in an occupied parent. For every point $h'$
+of any occupied child the preceding moduli and the two target
+inequalities at $h_*$ and a retained point of that child imply
+\[
+ |H(z_0+v_C(wh'))-H(z_0+v_C(wh_*))|
+ \le C(\gamma^{m_{i+1}}+r/|t|+\rho^{h_0m_i})
+ \le C'\gamma^{m_{i+1}} .
+\]
+The good dual test at $z_0+v_C(wh_*)$, with
+$h'=h_*+\rho^{m_i}y$, shows that the total length of those children
+is at most $\rho^{m_i}\gamma^{\sigma d_i}$. Iterate to bound the
+entire retained length by
+$2^D\gamma^{\sigma(m_D-m_0)}\ll\Delta^{\sigma(1-\kappa)}$.
+Average in $z_0$ by Haar invariance and integrate in the bands.
+The retained mean occupation is
+$O(r^{\sigma(1-\kappa)^2}+r^{1-\kappa})$. Markov's inequality,
+then $\sigma\uparrow s,\ \,\kappa\downarrow0$, proves the claim on $[-1,1]$. A fixed physical rescaling gives each bounded test interval, and replacing the target radius by a fixed multiple preserves every strict exponent.
+
+\end{proof}
+
+\section{An initial exponent of one half on a physical ray}\label{sec:ray-half-seed}
+Let $B,C$ denote the expanding and contracting multipliers of the
+two embeddings under consideration. Set $L=\log|B|$, $M=-\log|C|$,
+$\lambda=e^{-a}$, and assume
+\[
+          0<a<L,\qquad 0<a+M-L<L.                         \tag{H1}
+\]
+In particular (H1) holds when $M\le L$ and $0<L-a<M$.
+Use the physical space $E=\mathbb R$ for a real $B$ and
+$E=\mathbb C$ for a nonreal $B$. Write $v_B(y)_k=\operatorname{Re}(B^k y)$
+and $w_C(u)_k=\operatorname{Re}(C^k u)$, with coordinates taken modulo one
+when used as phases. The phase group has both these translation directions.
+Indeed a Laurent character vanishing on the physical phase group satisfies
+$p(B)=0$, and the conjugate embedding gives $p(C)=0$. Conversely, closure of
+the entire ambient $v_B(E)$ has annihilator $\{p:p(B)=0\}$ also in the
+complex case. The argument below requires invariance under the ambient
+translations and does not require a single ray to be dense in that group.
+
+Fix a unit physical ray $d$ and a unit transverse ray $e$ (take $1$ in a
+real coordinate). Define
+\[
+ q_k=\operatorname{Re}((B/|B|)^k d),\quad
+ p_k=\operatorname{Re}((C/|C|)^k e),\quad f(t)=\cos(2\pi t).
+\]
+For the real weights $c_k$ assume $|c_k|\le1$ and the following uniform
+condition on positive indices. There are $D<\infty$, $\delta>0$ such that
+every $D$ successive indices contain $k$ with
+\[
+                       |c_k q_k p_k|\ge\delta .              \tag{H2}
+\]
+For the uniform assertions the family of $(c_k,d,e)$ can be replaced
+by its compact closure in the product topology times the two unit spheres.
+Condition (H2) passes to this closure. On a phase coset take Haar $z$ and set
+\[
+ F_z(t)=\sum_{k\in\mathbb Z}\lambda^k c_k
+    [f(z_k+v_B(td)_k)-f(z_k)].
+\]
+\begin{lemma}[Initial exponent]\label{lem:half}
+Under (H1) and (H2), for each $0<s<1/2$, each fixed $K>0$, and $U$ uniform on $[0,T]$
+independently of $z$, with $1\le T\le3$, one has
+\[
+ \mathbb P_{z,U}\{\nu_z([F_z(U)-Kr,F_z(U)+Kr])>r^s\}=o(1),
+ \qquad \nu_z=(F_z)_*\operatorname{law}(U).                   \tag{H3}
+\]
+The limit is uniform over the indicated family, the phase coset and $T$.
+For the permitted products of angular factors this gives $\mathcal S_{1/2}$.
+\end{lemma}
+\begin{proof}
+We first estimate the probability in (H3), then pass to increments from the origin.
+
+\par\smallskip\noindent\textbf{Transverse differences on the ambient space.}\enspace
+Fix distinct real numbers $h_i,h_j$ in $[0,1]$. Let $D_z(y)$ be the
+ambient difference of the two functions at $z+w_C(h_i e)$ and
+$z+w_C(h_j e)$, with argument $y\in E$ in place of $td$. Its derivative
+$G_z(y)=\partial_dD_z(y)$ exists and has an absolutely and uniformly
+convergent plane-wave series. In fact the positive-frequency coefficient
+at the linear functional $v_B(\cdot)_k$ has modulus
+\[
+ \pi\lambda^k |B|^k |c_k q_k|\,
+ \left|\exp(2\pi i |C|^k p_k(h_i-h_j))-1\right|.
+\]
+For $k\ge0$ this is $O(Q^k)$, where $Q=\lambda|B||C|\in(0,1)$.
+For all sufficiently large $k$ satisfying (H2) it is at least $cQ^k$,
+with $c>0$ depending on the pair of translates. The negative time
+coefficients are $O((\lambda |B|)^k)$ and their differentiated series
+is bounded by $C\sum_{k<0}(\lambda |B|^2)^k$. Thus the derivative series
+represents the derivative of the difference, by convergence on compact
+sets of the original series and uniform convergence of the differentiated
+series. Put $\eta=-\log Q/L\in(0,1)$. Splitting the positive series where
+$|B|^k|y-y'|=1$ proves $|G_z(y)-G_z(y')|\le C|y-y'|^\eta$ globally.
+All constants just used are independent of $z$ and of the allowed profiles
+and ray directions.
+
+The covector giving $v_B(\cdot)_k$ has Euclidean length $|B|^k$,
+also when $E=\mathbb C$ is identified with $\mathbb R^2$. A fixed
+Schwartz kernel on $E$, rotated to that covector and rescaled by $|B|^k$,
+therefore isolates its coefficient. More explicitly, take a smooth
+Fourier bump equal to one at the first unit vector, supported in a ball
+about it of sufficiently small fixed radius to miss its negative and all
+spheres of radii $|B|^j$, $j\ne0$. The inverse transform has integral
+zero. At every center and every good $k$, the modulus of its convolution
+with $G_z$ is at least $cQ^k$. Subtracting the central value, the
+contribution outside distance $A|B|^{-k}$ is bounded by
+$CQ^k\int_{|u|>A}|u|^\eta|\psi(u)|\,du$,
+uniformly for rotated kernels (or use the radial envelope of their
+absolute values). At fixed sufficiently large $A$ this is at most
+$cQ^k/2$. Thus somewhere within this ball the derivative differs from
+its central value by $c'Q^k$, and the H\"older estimate preserves half
+that difference on a ball of radius $c''|B|^{-k}$. At a zero of $G_z$
+these balls are holes of fixed relative volume at arbitrarily small
+scales. Lebesgue differentiation gives $|\{y\in E:G_z(y)=0\}|=0$.
+On every fixed bounded cube $J\subset E$ it follows that
+\[
+ \sup_{z,c,d,e}|\{y\in J: |G_z(y)|\le\kappa\}|\longrightarrow0
+       \quad(\kappa\downarrow0).                              \tag{H4}
+\]
+A countersequence would have a convergent subsequence of phases, ray
+directions and weights. The summable tails and continuity of finitely
+many terms imply uniform convergence on $J$ to a member of the family.
+All phase strings are allowed in (H4).
+
+\par\smallskip\noindent\textbf{From area to the sampled line.}\enspace
+The translation identity is $G_{z+v_B(y)}(td)=G_z(y+td)$, because the
+constants subtracted on anchoring disappear on differentiation. Integrate
+$y$ uniformly on a unit cube of $E$, and translate $z$ by $v_B(y)$
+inside its coset Haar integral. For each $0\le t\le3$ this proves from
+(H4), using a fixed cube containing all translates of the unit cube, that
+\[
+  \sup_{0\le t\le3}\mathbb P_z\{|G_z(td)|\le\kappa\}=o_\kappa(1).
+                                                                    \tag{H5}
+\]
+The estimate is uniform in the coset, the weights and the directions.
+It requires no assertion about restriction of an area-null set to an
+individual line.
+
+\par\smallskip\noindent\textbf{Pairs of heavy image cells.}\enspace
+For a fixed integer $N$ choose $N$ distinct $h_i\in[0,1]$. Let $E_i(z)$
+be the set of input points whose realized value for the phase
+$z+w_C(h_i e)$ satisfies the heavy-ball test in (H3). The heavy output
+points are contained in $O_K(r^{-s})$ intervals of length $r$, since the
+enlargements of a grid of such intervals have bounded overlap and each
+enlargement in question has mass exceeding $r^s$. Hence on
+$E_i(z)\cap E_j(z)$, the scalar function $D_z(td)$ belongs to a union
+of $O_K(r^{-2s})$ intervals of length $O(r)$. This union may depend on
+$z,i,j$. Divide $[0,T]$ into a fixed number $O_\kappa(1)$ of intervals
+of diameter small enough that the oscillation of $G_z(td)$ on each
+interval is at most $\kappa$. On any interval containing a point where
+$|G_z(td)|>2\kappa$, the derivative of the scalar function has fixed
+sign and absolute value at least $\kappa$. The intersection with the
+two heavy sets there has length $O_\kappa(r^{1-2s})$. The remaining
+intervals lie in $|G_z(td)|\le2\kappa$, of mean length $o_\kappa(1)$
+by (H5). First let $r\downarrow0$, then $\kappa\downarrow0$, to see that
+the mean overlap of each pair tends to zero uniformly. Since at each
+point $\sum_i{\bf1}_{E_i}\le1+\sum_{i<j}{\bf1}_{E_i\cap E_j}$ and
+Haar invariance makes all $N$ summands on the left have the same mean,
+the limsup of the probability in (H3) is at most $1/N$. Let $N\to\infty$.
+For the anchored version, take $T=3$ and $1\le t\le2$. The centered
+mass at $F_z(t)$ dominates one third the anchored mass on $[-1,1]$
+for $z+v_B(td)$; that reanchored state has coset Haar law. A strict
+exponent loss absorbs the factor three.
+
+\par\smallskip\noindent\textbf{Products of angular factors.}\enspace
+Here at most one of the two embeddings is nonreal. Write its angle as
+$\theta$. Apart from real sign factors all the factors tested in
+$c_k q_k p_k$ are of the form $\cos(\pm k\theta+\phi)$.
+For irrational $\theta/(2\pi)$, a product of a fixed number $D'$ of
+these factors is a nonzero trigonometric polynomial for every choice
+of its phases. The integral of its squared modulus therefore has a
+positive minimum over the compact phase torus. Uniform convergence of
+the orbit averages of this squared trigonometric polynomial follows
+directly by summing the nonconstant Fourier modes as geometric
+progressions, uniformly in the phases and the starting index.
+This proves (H2) with constants depending on $D'$ and $\theta$.
+For rational rotation choose the complex ray $e^{i\phi_0}$ with
+$\cos(k\theta+\phi_0)\ne0$ on every residue. This is possible by
+avoiding finitely many directions. Its conjugated and rotated
+directions also have a positive lower bound on their projection
+factors. A product of a fixed number of these factors then meets
+(H2). More generally, for any normalized periodic profile with
+$\max_k|c_k|=1$ and common period the order of the rotation
+(enlarged by a factor two for real signs if needed), (H2) holds
+uniformly by using a residue attaining that maximum. This last
+form includes compact limits of normalized periodic products.
+\end{proof}
+\section{The weighted critical estimate on a fixed ray}
+\label{sec:weighted-critical-ray}
+Write $b=|B|=e^L>1$, $\rho=|C|=e^{-M}<1$ and
+$\lambda=e^{-a}$. In this section $a+M=L$, equivalently
+$\lambda b\rho=1$. Thus $0<M<L$ and $\gamma=(b\lambda)^{-1}=\rho$.
+The physical frequency $B$ and transverse frequency $C$ can be real or
+complex. The Haar group has the following two properties: a finitely
+supported character with integer coefficients $n_j$ is trivial precisely
+if $\sum_j n_j B^j=0$, and the translations with coordinates
+$\operatorname{Re}(C^j h)$ preserve Haar measure on each coset. In a
+complex physical space the first property refers to the group of the
+\emph{full} physical space before choosing a ray. For physical complex
+arguments we use the convention $\operatorname{Re}(B^j x)$.
+
+Let $v,w$ be fixed unit physical and transverse directions and put
+\[
+ d_j=\operatorname{Re}((B/b)^j v),\qquad
+ e_j=\operatorname{Re}((C/\rho)^j w),\qquad
+ k_j=c_jd_je_j .
+\]
+Here $c_j$ are the real weights of the tested model, with $|c_j|\le1$.
+We allow arbitrary additive forcing phases by working on translated Haar
+cosets. The estimate below is uniform in any family of weights and rays
+for which, for some $\eta>0$ and $m_0<\infty$,
+\begin{equation}
+ \inf_{i\in\mathbb Z}\sum_{j=i}^{i+m-1} k_j^2\ge\eta m
+ \qquad(m\ge m_0). \tag{RC1}
+\end{equation}
+For example, with at most one nonreal direction, finite products of
+cosines are trigonometric polynomials evaluated along one rotation.
+For an irrational rotation, any nonzero polynomial of this type has
+positive square mean; multiplying by any additional cosine preserves
+this fact. The geometric series for each nonconstant Fourier mode gives
+uniform convergence of the block square means, independently of their
+origins. On compact normalized families of fixed degree this is uniform
+by compactness. For a finite cyclic rotation one instead takes the mean
+over its actual finite orbit. One can choose the physical or transverse
+ray in a complex place to avoid the finitely many perpendicular
+directions, making the additional factor nonzero at every point of the
+orbit. Simultaneous translations of the whole sequence $k_j$ preserve
+(RC1). For a fixed arbitrary ray the stated estimate requires (RC1);
+an identically zero product on a finite orbit would invalidate its
+variance bound.
+
+Write $V_z(tv)=F_z(t)$ for the weighted increment along the physical
+ray $v$, with $f(t)=\cos(2\pi t)$ as in \eqref{eq:increment}.
+
+\begin{proposition}[Critical estimate]\label{prop:critical}
+Assume $a+M=L$ and (RC1). For every fixed $A,K>0$ and $0<s<1$, 
+\begin{equation}
+ m\left\{z:\int_{-A}^A {\bf1}_{|V_z(tv)|\le Kr}\,dt>r^s\right\}
+ \longrightarrow0. \tag{RC2}
+\end{equation}
+Here $m$ is Haar probability on the chosen coset. For fixed $B,C$ the
+convergence is uniform over cosets and over weights and rays with common
+constants $\eta,m_0$ in (RC1). In particular $\mathcal S_1$ holds for the permitted products.
+\end{proposition}
+\begin{proof}
+We take $A=1$. For fixed $A$ the same calculations take finitely
+many additional negative values of the physical scale index.
+
+\par\smallskip\noindent\textbf{Concentration of the drift.}\enspace
+Define real sums $S_0=0$ on both sides of zero by
+$S_{j+1}-S_j=k_j f''(z_j)$. We claim that for each fixed $D>0$,
+\begin{equation}
+ \sup_i\sup_{t\in\mathbb R}m\{|S_{i+m'}-S_i-t|\le D\}\to0
+       \quad(m'\to\infty). \tag{RC3}
+\end{equation}
+For completeness, normalize $f''$ to a cosine. The variance on the
+block is $\sigma^2=\frac12\sum k_j^2\asymp m'$, since distinct powers
+of $B$ have different absolute values. Only vanishing signed sums of
+powers of $B$ survive in the Haar integral of a product of characters.
+For each fixed $q$ all nonzero sums of at most $q$ signed nonnegative
+powers have absolute value at least some $c_{q,B}>0$. If this failed,
+pass to a countersequence with fixed signs and sorted exponents, divide
+by the largest complex power, and pass to a subsequence on which all
+offsets from that exponent are fixed or diverge. The fixed-offset group
+sums to zero exactly. Delete it and apply induction on $q$ to the
+remaining nonzero sum. Bounded largest exponents give only finitely many
+possible sums. It follows that any such zero relation separates across
+every gap exceeding a fixed $J_q$. If $m$ is the smallest exponent of the upper group, its nonzero sum has modulus at least $c_{q,B}b^m$, by factoring out $B^m$. The lower group has modulus at most $q b^{m-J_q}$. Choose $J_q$ with $qb^{-J_q}<c_{q,B}$; a zero relation then forces each group to sum to zero. A cluster has at least two occurrences; clusters of size two
+are equal times with opposite signs. For the $2l$-th moment there are
+$O_{l,B}((m')^{l-1})$ configurations having a cluster of size bigger
+than two. Pairing all the others gives
+$(2l-1)!!\,\sigma^{2l}+O_{l,B}((m')^{l-1})$, since choices of pairs
+with nearby indices also have this error order. For order $2l+1$ the
+moment is $O_{l,B}((m')^l)$. The bounds use only $|k_j|\le1$ and hold
+for every coset. The normalized laws therefore converge to the standard
+normal along every sequence of allowed blocks and weights, proving
+(RC3) by tightness and continuity of its distribution function.
+Restoring the fixed factor in $f''$ has no effect. In particular,
+for fixed $H,D$ the following quantity tends uniformly to zero in
+probability as $n\to\infty$:
+\[
+ n^{-1}\sup_t\#\{i\in[-Hn,Hn]\cap\mathbb Z:|S_i-t|\le D\}.
+\]
+Indeed its square is bounded by $n^{-2}$ times the number of pairs with
+$|S_i-S_j|\le2D$. Split into small and large index gaps and apply (RC3)
+to see that the expected number of such pairs is $o(n^2)$.
+
+\par\smallskip\noindent\textbf{Critical linearization.}\enspace
+Write $W(h)_j=\operatorname{Re}(C^j w)h$. Given $0<|t|\le1$, choose
+$k\ge0$ by $b^{-k-1}<|t|\le b^{-k}$. For $N\ge0$ and $|h|\le D\rho^N$
+one has, uniformly,
+\begin{equation}
+ \frac{V_{z+W(h)}(tv)-V_z(tv)}{t}
+       =h(S_{k+1}-S_{-N})+O_D(\rho^N). \tag{RC4}
+\end{equation}
+For $j<-N$ use the physical first difference bound $C b^j |t|$.
+For $j>k$ use the transverse bound $C\rho^j |h|$ and
+$(\lambda\rho)^k/|t|=O_b(1)$. For $-N\le j\le k$ integrate the mixed
+difference twice. Its weighted quotient equals $h k_j f''(z_j)$ plus
+an error of size at most $C|h|(b^j|t|+\rho^j|h|)$, since
+$\lambda b\rho=1$ and $|d_j|,|e_j|,|c_j|\le1$. Summing gives (RC4).
+
+\par\smallskip\noindent\textbf{Retaining environments before integrating in the secant.}\enspace
+Put $n=\log(1/r)$, fix $0<\delta<1/4$, and for $r^{1-\delta}<|t|\le1$
+put $T=Kr/|t|$. Choose a large fixed $q$, let $d=2^{-q}$, and
+subdivide the unit transverse interval into nested intervals of length
+$d^l$. Let $N_l$ satisfy $\rho^{N_l}\asymp d^l$ by nearest-integer
+rounding, and take $J=\lfloor\log(1/T)/\log(1/d)\rfloor$. For large
+$q$ the $N_l$ are distinct. All indices $-N_l,k+1$ belong to
+$[-Hn,Hn]$ with $H$ fixed. For $D_q$ a sufficiently large constant
+times $d^{-1}$ choose a set $G_r$ of measure $1-o(1)$, uniformly in
+the model, on which at most $\epsilon n$ of those indices can lie in
+\emph{any} interval of radius $D_q$ in the value of $S_i$. This set
+is chosen independently of $t$, by the consequence of (RC3).
+
+Fix $z_0$ in the coset and consider the $h_0\in[0,1]$ for which
+$z=z_0+W(h_0)\in G_r$ and $|V_z(tv)|\le Kr$. At such a point mark
+level $l<J$ bad if $|S_{k+1}-S_{-N_l}|\le D_q$. There are at most
+$\epsilon n$ bad marks. Fix one pattern of marks. In an occupied
+parent at a good level apply (RC4) at one selected reference point to
+every selected point in the same parent. Their distances from that
+reference are bounded by $C(T+d^l)/D_q=O(d^{l+1})$. Thus at most a
+fixed $C_*$ children are occupied. This constant is independent of $q$:
+rounding $N_l$ makes $d^l/\rho^{N_l}$ bounded in terms of $\rho$ alone,
+so (RC4) is used with fixed $D$ throughout. At a bad level allow all $d^{-1}$.
+With at most $2^J$ patterns, the selected length is bounded by
+$(2C_*d)^Jd^{-\epsilon n}$. Since $\log(1/T)\ge\delta n-O_K(1)$,
+first choosing $q$ large, then $\epsilon$ small, bounds this length by
+$C_{q,K} T^{1-\delta}$. Average over $z_0$ and use Haar invariance
+under $W(h_0)$. Integrating in $t$, with the trivial bound on
+$|t|\le r^{1-\delta}$, yields
+\[
+ \int_{G_r}\int_{-1}^1 {\bf1}_{|V_z(tv)|\le Kr}\,dt\,dm(z)
+      \le C_{q,K,\delta}r^{1-\delta},
+\]
+since $\int_0^1t^{-(1-\delta)}dt<\infty$. Markov's inequality and
+$m(G_r^c)=o(1)$ prove (RC2) for every $s<1$.
+
+
+\end{proof}
+
+\section{Equal rates and the strip estimate}\label{sec:equal}
+
+Assume $L=M$, so $b\rho=1$, and write
+$\alpha=a/L$, $\beta=1-\alpha$, $\gamma=(b\lambda)^{-1}=b^{-\beta}$.
+\begin{proposition}[Improvement at equal rates]\label{prop:strip}
+Suppose the original system has $\mathcal S_s$ and the reversed
+system at amplitude $\gamma$ has $\mathcal S_t$. Then the original
+system has
+\[
+ \mathcal S_{\beta s+(1-\beta)\min(1,\beta s+t)}.               \tag{B1}
+\]
+The assertions apply to the parameter families at each fixed finite
+weight complexity.
+\end{proposition}
+
+\begin{proof}
+Take $0<s'<s$, $0<t'<t$ and an integer $J\ge2$.
+At $r=b^{-m}$ put $\Delta=\gamma^m=r^\beta$, $d=r/\Delta$,
+and use the meshes $l=d^{j/J}$, $0\le j\le J$.
+Independently sample Haar-coset $z$, uniform stable parameter
+$h\in[0,1]$ and uniform physical input $x\in[0,3]$. Divide the
+$h$ interval into $\lceil1/r\rceil$ equal cells with centers $h_0$.
+Set $Y(x)=F_{z+v_C(wh_0)}(x)$ and
+\[
+ P(h)=\sum_{k\ge1}\gamma^k c_{-k} p_{-k}(v,B)
+             f'(z_{-k}+\operatorname{Re}(w C^{-k})h).
+\]
+Uniformly for $x\in[0,3]$ and $h$ in its cell,
+\[
+ F_{z+v_C(wh)}(x)=Y(x)+x(P(h)-P(h_0))+O(r).                    \tag{B2}
+\]
+The positive-index variation is at most
+$Cr\sum_{k\ge0}\lambda^k\rho^k$; for the negative indices subtract
+the part linear in $x$ and differentiate the remainder in the stable
+phase, for a bound $Cr\sum_{k\ge1}\lambda^{-k}b^{-2k}\rho^{-k}$.
+Both series converge. Splitting the slope series at $m$ gives
+$|P(h)-P(h_0)|\ll\Delta$.
+
+Condition on $z$ and the stable cell and write
+$\theta=(P(h)-P(h_0))/\Delta$. Discard stable parameters of total
+mass $o(1)$ on average so that the resulting conditional direction
+subprobability $\sigma$ satisfies
+\[
+ \sigma(I)\ll l^{t'} \quad (|I|\le C l)                         \tag{B3}
+\]
+at every listed mesh. Indeed, for a sampled $h_*$, change variables
+$h=h_*+b^{-m}y$, $|y|\le1$, in the centered conditional test. The
+normalized density is bounded and, by the exact reversed-slope
+computation above, the normalized slope increment is a dual increment
+at $S^m R(z+v_C(wh_*))$ (up to fixed phase adjustment and multiplicative
+factor), with error $O((\rho/\gamma)^m)=O(d)$. The transformed rays
+and weights are deterministic for this test, and the environment is
+translated Haar for each fixed $h_*$. At the $J$ shrinking meshes
+$l\ge d$ the dual assertion $\mathcal S_t$ applies using slack above
+$t'$. The mesh $1$ is trivial. Remove the union of failing centered
+tests. A target meeting the retained directions is contained in a
+doubled test at a retained point. The resulting bound averages the
+deleted conditional stable probability over $z$ and the cell choices.
+
+Independently of the retained parameter within its cell, discard an
+averaged $o(1)$ of the physical inputs for $Y$. For each range strip
+$[i\Delta,(i+1)\Delta)$ let $\mu_i$ be the retained uniform input
+measure pushed to coordinates $(x,(Y(x)-i\Delta)/\Delta)$ on that
+strip and write $M_i=\|\mu_i\|$. At the listed meshes,
+\[
+ \sup_p\mu_i(B(p,l))\ll\Delta^{s'}l^{D},\qquad
+ D=1+\beta s',\qquad M_i\ll\Delta^{s'},\quad\sum_iM_i\le1.     \tag{B4}
+\]
+In fact for sampled input $x_*$ and $b^{-n}\asymp l$, recenter at
+$x_*$, rescale by $b^{-n}$, and apply the original $\mathcal S_s$ to
+the requirement $|x-x_*|\le C l$,
+$|Y(x)-Y(x_*)|\le C\Delta l$. The normalized input is bounded, the
+normalized target radius is comparable to $\Delta l^\beta$, the new
+physical ray is $v(B/b)^n$, and the new weights are $c_{j+n}$.
+The Haar marginal after the two translations and shift holds at
+each fixed $h_0,x_*$. All the target radii tend to zero. Removing
+the finite bad tests gives their bounds at any retained center,
+and hence arbitrary centers via a doubled test. The mesh $1$ gives
+the stated strip mass since the normalized strips have bounded
+support. With the environment and the stable cell fixed, the restriction
+defining $\sigma$ depends only on $h$. Those defining the $\mu_i$ depend
+only on $x$ and the cell center $h_0$. Thus the resulting measures may
+be integrated against one another before averaging over the cells.
+
+We give the frequency estimate since the factor $\Delta^{s'}$ must
+be retained at all frequencies. For each $h$, two retained outputs
+within $Cr$ give by (B2) two strip points with
+$|i-i'+\pi_\theta(p)-\pi_\theta(p')|\le C' d$, where
+$\pi_\theta(x,y)=y+\theta x$. Only $|i-i'|\le C''$ contribute.
+Use a positive Schwartz majorant of this interval indicator with
+Fourier support in $[-C/d,C/d]$ and Fourier norm at most $C d$
+pointwise. One obtains it by rescaling a squared modulus of an
+inverse Fourier transform of a nonnegative smooth bump. Taking
+absolute values and using $2yz\le y^2+z^2$ bounds the conditional
+averaged collision probability by
+\[
+ C d\sum_i\int\int_{|\tau|\le C/d}
+         |\widehat\mu_i(\tau\theta,\tau)|^2\,d\tau\,d\sigma(\theta).
+\]
+The range $|\tau|\le C$ contributes $O(d\Delta^{s'})$. On every
+larger band $C d^{1/J}/l\le|\tau|\le C/l$, the image of
+$d\sigma(\theta)d\tau$ under $(\theta,\tau)\mapsto(\tau\theta,\tau)$
+has unit-square masses $O(d^{-1/J}l^{t'})$ by (B3), because the
+allowed angular interval at each $\tau$ is covered by $O(d^{-1/J})$
+intervals of length $l$. Its support lies in $B(0,C'/l)$.
+Uniformly in $y\in\mathbb R^2$, the Gaussian integral majorization
+and Fourier inversion give
+\[
+ \int_{B(y,C'/l)} |\widehat\mu_i|^2
+  \ll M_i\Delta^{s'}l^{D-2}.
+\]
+The physical kernel is bounded by $Cl^{-2}\exp(-c|p-p'|^2/l^2)$,
+and a ring of radius $kl$ is covered by $O((k+1)^2)$ balls of
+radius $l$. To use this disk estimate against the band law, majorize
+$|\widehat\mu_i|^2$ by $C_N(1+|\cdot|)^{-N}*|\widehat\mu_i|^2$:
+take a smooth cutoff identically one on the common compact physical
+support, convolve on the frequency side and use Cauchy--Schwarz.
+Convolving the band law with this kernel produces a density bounded
+by $C_N d^{-1/J}l^{t'}(1+\operatorname{dist}
+(\cdot,B(0,C'/l)))^{-N+3}$. Sum the uniform disk estimate over
+boxes of side $1/l$, taking $N$ large. The bound for an individual strip
+still contains $M_i\Delta^{s'}$. Since $\sum_iM_i\le1$, after the initial
+factor $d$ the cost of a band is at most
+$C d^{1-1/J}\Delta^{s'} l^{\,\beta s'+t'-1}$.
+For a nonnegative exponent of $l$ use $l\le1$; for a negative exponent
+use $l\ge d$. Summing the $J$ bands and the low frequencies gives
+\[
+ C_J\Delta^{s'}d^{\min(1,\beta s'+t')-1/J}.                      \tag{B5}
+\]
+
+To identify the collision estimated in (B5), fix $z$ and a transverse
+cell $J_0$. Let $U\subset J_0$ and $Q\subset[0,3]$ be the retained
+transverse and physical inputs above. Write $m_{J_0}$ and $\ell$ for
+normalized Lebesgue measure on these two full intervals. For
+$h\in J_0$ put $\zeta=z+v_C(wh)$ and set
+\[
+ \nu_\zeta=(F_\zeta)_*\ell,\qquad
+ \eta_{z,J_0,h}={\bf1}_U(h)(F_\zeta)_*(\ell|_Q)\le\nu_\zeta .
+\]
+With $\mathcal C_R(\eta)=(\eta\otimes\eta)\{(y,y'):|y-y'|\le R\}$,
+the conditional collision has the exact representation
+\[
+ \int_{J_0}\mathcal C_R(\eta_{z,J_0,h})\,dm_{J_0}(h)
+ =\int_U\int_{Q^2}
+ {\bf1}_{\{|F_\zeta(x)-F_\zeta(x')|\le R\}}\,
+ d\ell(x)\,d\ell(x')\,dm_{J_0}(h).
+\]
+Both ordinates on the right use the same $h$. At $R=Cr$, (B2) and
+the strip estimate above bound the right-hand side by (B5).
+On averaging over $z,J_0,h$, the omitted mass is $o(1)$ by the two
+deletion estimates. Lemma~\ref{lem:full-ball} below applies separately
+to each pair $(\nu_\zeta,\eta_{z,J_0,h})$, including different
+representations of the same $\zeta$. Take $\tau=r^u$ with $u$ strictly
+below the exponent in (B5) expressed in $r$. At fixed $M$, the
+averaged collision term divided by $\tau$ tends to zero. Let $M\to\infty$,
+then reanchor
+sampled $x\in[1,2]$; its centered test on $[0,3]$ dominates the
+anchored occupation on $[-1,1]$ in the Haar-coset environment
+$z+v_C(wh)+v_B(vx)$. Extend to each fixed $T$ by a fixed physical
+rescaling, and to arbitrary radii by geometric interpolation. This
+proves (B1) by $s'\uparrow s$, $t'\uparrow t$, $J\to\infty$.
+
+\end{proof}
+
+\begin{lemma}[Full ball mass from retained collisions]\label{lem:full-ball}
+Let $\nu$ be a probability measure on $\mathbb R$ and let $0\le\eta\le\nu$.
+Write $\mathcal C_R(\eta)=(\eta\otimes\eta)\{|y-y'|\le R\}$.
+For $R,\tau>0$ and $M>1$,
+\[
+ \nu\{y:\nu([y-R,y+R])>\tau\}
+ \le 1-\|\eta\|+\frac{3}{M}+\frac{M}{\tau}\mathcal C_R(\eta).
+\]
+\end{lemma}
+\begin{proof}
+Partition the line into half-open cells $I$ of length $R$. If
+$\nu(3I)>M\eta(I)$, summing $\eta(I)$ over these cells costs at most
+$3/M$, since the concentric triples have overlap three. In any other
+cell containing a point of the displayed event,
+$\tau<\nu(3I)\le M\eta(I)$. Its retained mass is at most
+$(M/\tau)\eta(I)^2$. Pairs from the same cell have distance at most
+$R$, so $\sum_I\eta(I)^2\le\mathcal C_R(\eta)$. The contribution of
+$\nu-\eta$ is at most $1-\|\eta\|$.
+\end{proof}
+
+Both systems satisfy $\mathcal S_{1/2}$ by Lemma~\ref{lem:half},
+since in each orientation $0<a+M-L=a<L$. If every finite
+complexity admits a common exponent $u$ in both directions, (B1)
+improves it to the smaller of
+$p u+(1-p)\min(1,(1+p)u)$ for $p=\alpha,\beta$.
+Both expressions are strictly greater than $u$ for $0<u<1$.
+Iteration from $1/2$ therefore reaches every exponent below one.
+Each probability estimate involves a fixed finite weight complexity.
+
+\section{Transverse differentiation and the amplitude recursion}\label{sec:descent}
+\begin{proposition}[Transverse differentiation]\label{prop:descent}
+Suppose $a+M<L$. A uniform
+$\mathcal S_s$ for $(B,C,e^{-(a+M)})$ implies
+\[
+ \mathcal S_{\min(1,(a+M)s/a)}\quad\text{for }(B,C,e^{-a}).       \tag{D}\label{eq:descent}
+\]
+\end{proposition}
+\begin{proof}
+Write $g=e^{-a}$ and $h=e^{-(a+M)}$. Differentiating $F_{z+v_C(wu)}(x)$ in $u$ produces, up to a fixed nonzero constant, the new function $G$ with amplitude $h$, weights $c_jp_j(w,C)$ and a constant phase offset. For $j\ge0$ the series of derivatives is dominated by $C h^j$; for $j<0$ it is dominated by $C(h|B|)^j$ on bounded physical intervals. Uniform convergence gives a uniformly continuous derivative in $u$ on those intervals, uniformly in phase and permitted weights/rays, by truncating the two tails. The new inputs stay in the parameter families declared above.
+
+For completeness we give the information argument for (D). On $[0,T]$, $1\le T\le3$, use normalized Lebesgue measure and coset Haar phase. An anchored bound at exponent $s$ for $G$ implies the sampled bound at every strict exponent $s'<s$: recenter at an independent uniform $x$ and use the anchored interval $[-3,3]$. Fix $0<t<\min(1,(a+M)s/a)$ and a large fixed block size $n$. Divide the interval into $N=\lfloor T|B|^n\rfloor$ equal pieces. Rescaling a piece to $[0,T']$, $T'=T|B|^n/N\in[1,2]$, scales increments of $F,G$ by $g^n,h^n$ respectively, shifts the weights by $n$, rotates the ray, and maps the phase to a translated Haar environment. The oscillation of $G$ on any such piece is $\le C_0 h^n$. Join pieces when their values of $G$ at the left endpoints are within $(2C_0+1)h^n$. Count the piece itself among its neighbors. Mark a piece bad if its degree exceeds $Ng^{nt}$. For an input in that piece all neighboring pieces map by $G$ inside its ball of radius $(4C_0+1)h^n$. The sampled bound, with $s'$ such that $t a/(a+M)<s'<s$, gives probability $e_n=o(1)$ of a bad piece, uniformly in the current deterministic parameters. Repeat this construction in the rescaled child with its updated parameters; the test at each node uses the derivative $G$ for the newly started $F$. Only the magnitude and family of that derivative are needed. Fix the same admissible transverse ray at every node of the orientation under discussion; the child suffixes then use precisely the same rule.
+
+To see how the transverse direction enters a child, denote the derivative
+under $z\mapsto z+v_C(wu)$ at $u=0$ by $D_w$. For a child with left endpoint
+$x_0$ put $\widetilde z=S^n(z+v_B(vx_0))$. Let $\widetilde F$ have
+the same amplitude $g$, physical ray $v(B/b)^n$ and weights $c_{i+n}$.
+Reindexing the two-sided increment gives
+\[
+ F_z(x_0+b^{-n}y)-F_z(x_0)=g^n\widetilde F_{\widetilde z}(y).
+\]
+Under transverse translation $\widetilde z$ changes by $v_C(C^n w u)$.
+Differentiating both sides therefore gives
+\[
+ D_w F_z(x_0+b^{-n}y)-D_w F_z(x_0)
+    = h^n D_{(C/\rho)^n w}\widetilde F_{\widetilde z}(y).
+\]
+This identity bounds the oscillation used in the parent's neighbor test,
+uniformly in the rotated direction. The child's own neighbor test uses
+$D_w\widetilde F$ by the recursive definition. The diagonal energy below
+rescales $F$ and the statuses generated by those child tests.
+
+For a length-$k$ status word $P$ retain the unnormalized input on the successive labels prescribed by $P$. Write $E_P(r)$ for the supremum over allowed parameters (with the present fixed complexity bound for $F$), cosets and lengths of its mean self-energy under $K_r(y)=r^{-1}(1-|y|/r)_+$. If $P'$ is its suffix then
+\[
+ E_P(r)\le C_n+A E_{P'}(r/g^n),\qquad
+ A=g^{-n(1-t)}\ \text{for a good first label},\quad
+ A=g^{-n}\ \text{for a bad one}.
+\]
+Indeed, for a pair of non-neighboring children the derivative of the difference of the two realized ordinates with respect to transverse translation has modulus at least a fixed constant times $h^n$. Average over an extra Haar-preserving translation $u\in[0,1]$, discard all path restrictions there, and keep this necessary derivative bound at the translated environment. Uniform continuity of that derivative gives a finite partition of $[0,1]$ on each of whose intervals meeting the bound the derivative has constant sign and a uniform positive lower modulus. Change variables on it to bound the integral of the kernel by $C_n$, uniformly in the input pair. For neighbors use that $K_r$ is an autocorrelation and hence defines a positive semidefinite bilinear form. Bound each mixed energy by half the sum of the two diagonal energies. Its multiplicity in the good case is at most $Ng^{nt}$ since both labels are good; the unrestricted multiplicity is $N$. The child masses carry factors $N^{-2}$. A diagonal rescaling costs $g^{-n}$ in the kernel. Discard the first label condition in each diagonal and average in the phase for that deterministic child, whose transformed phase is translated Haar. This gives the displayed recursion. The rescaled model for $F$ acquires a shifted existing weight, with the same complexity; the extra weight for $G$ enters only its neighbor test.
+
+At scale $r_k=g^{nk}$ retain all words with at most $\epsilon k$ bad labels. The discarded mass on average is at most $e_n/\epsilon$: before imposing any labels, the expected bad probability at each depth is at most $e_n$ by averaging the deterministic physical cells and their shifted Haar states. There are at most $\exp(kH(\epsilon))$ retained words for $0<\epsilon<1/2$, with binary entropy $H$. Iterating the recursion and applying the triangle inequality to the kernel seminorm of their sum bounds the retained collision probability at distance $Cr_k$ by
+\[
+ C_{n,C}(k+1)r_k^{\,t(1-\epsilon)-2H(\epsilon)/(na)} .
+\]
+Use the kernel at $2Cr_k$, where a close pair contributes at least $1/(4Cr_k)$. Apply Lemma~\ref{lem:full-ball} at $R=Cr_k$ to the full law and
+the submeasure retained at this scale. For any exponent strictly below
+the displayed collision exponent, take $\tau$ equal to $r_k$ to that
+power, let $k\to\infty$ at fixed $n,\epsilon,M$, then let $M\to\infty$. Fixed $n$ allows interpolation between the $r_k$ with a fixed dilation. Choose $n\to\infty$, $\epsilon\downarrow0$ with $e_n/\epsilon\to0$, and reanchor on $[1,2]\subset[0,3]$ to obtain (D). Fixed larger anchored domains follow by dilating the physical input. All bounds used here are for fixed finite weight complexity.
+
+\end{proof}
+
+\subsection{The recursion at unequal rates}\label{sec:closure}
+\begin{proposition}[A contracting conjugate]\label{prop:two}
+Let $B,C$ be as in Section~\ref{sec:embeddings}, with
+$|C|<1<|B|$, and let $|B|^{-1}<\lambda<1$.
+Then $\mathcal S_1$ holds on the permitted families of rays and weights.
+\end{proposition}
+\begin{proof}
+Suppose first that $L>M$, and write $\lambda=e^{-a}$.
+At $a=L-M$ Proposition~\ref{prop:critical} gives $\mathcal S_1$.
+If $0<a<L-M$, Proposition~\ref{prop:descent} uses the estimate at $a+M$.
+If $L-M<a<L$, apply Proposition~\ref{prop:transfer} twice.
+The intermediate log rates are $(M,L)$ at amplitude exponent $L-a$.
+The second transfer returns to rates $(L,M)$ at exponent $a+M-L$.
+The two hypotheses are $a+M>L$ and $(L-a)+L>M$.
+The latter follows from $a<L$ and $L>M$.
+Both transfers preserve the available information exponent.
+
+Up to a visit to $a_n=L-M$, the sequence of required parameters is
+\[
+ a_n=(a+nM)\bmod L.
+\]
+In the first $n$ steps the number of indices with $a_i+M>L$ is
+$\lfloor(a+nM)/L\rfloor$ in the absence of a critical visit.
+Since $0<M/L<1$, there are infinitely many steps of each type.
+At every index with $a_i+M>L$ we have
+$0<a_i+M-L<M<L$. Thus Lemma~\ref{lem:half} gives
+$\mathcal S_{1/2}$ there. At every earlier index with $a_i+M<L$,
+\eqref{eq:descent} increases the exponent in the backward deduction
+by a factor $(a_i+M)/a_i\ge1+M/L$, up to the cap of one.
+Choose an index of the first type with at least $k$ earlier indices
+of the second type, where $(1+M/L)^k/2\ge1$.
+The backward deduction gives $\mathcal S_1$ at $a_0$.
+If the orbit has a critical visit, start there with exponent one.
+There is also a bound on the number of required parameter steps, uniform
+in $a$ for fixed $L>M$. Set $r_0=M/L$,
+$k_* = \lceil\log 2/\log(1+r_0)\rceil$ and
+$N=\lceil(k_*+1)/(1-r_0)\rceil$. Unless the critical value is visited,
+the first $N$ steps contain at least $N(1-r_0)-1\ge k_*$
+indices with $a_i+M<L$, by the floor count above. The next
+$\lceil1/r_0\rceil$ steps contain an index with $a_i+M>L$, since
+adding $\lceil1/r_0\rceil r_0\ge1$ increases the floor by at least one.
+At that index the initial exponent $1/2$ suffices to start the backward
+deduction. An earlier critical visit starts it with exponent one.
+Thus $N+\lceil1/r_0\rceil$ parameter steps suffice, each involving
+only finitely many weight factors.
+
+For $M>L$, a single reciprocal transfer applies since $a+M>L$.
+In the reversed system $0<L-a<M$ and the larger log rate is first,
+so the preceding case applies. For $L=M$, Proposition~\ref{prop:strip}
+and its iteration in Section~\ref{sec:equal} give the conclusion.
+\end{proof}
+
+\appendix
+\section{From anchored information to the graph}\label{app:graph}
+\begin{proposition}[Graph comparison]\label{prop:graph}
+Fix a real $b>1$, $1/b<\lambda<1$, and $0<s\le1$.
+Suppose the unweighted cosine increment satisfies \eqref{eq:anchor}
+uniformly on cosets of $H_b$. For every prescribed phase sequence and
+every interval of positive length the Hausdorff dimension of the graph
+is at least $1+s(1-\alpha)$. At $s=1$ the graph and its natural measure
+satisfy the conclusions of Theorem~\ref{thm:main}.
+\end{proposition}
+\begin{proof}
+For a prescribed one-sided sequence of phases, proceed as follows. Extend them in any way to all integer indices. The compact phase group $H$ is the closure of $t\mapsto(b^it\bmod1)_{i\in\mathbb Z}$ in $\T^{\mathbb Z}$, as in the two-embedding argument. Indeed its annihilator consists exactly of the Laurent polynomials vanishing at $b$. Write
+\[
+ \theta_n(x)=(b^{n+i}x+\varphi_{n+i})_{i\in\mathbb Z},
+ \quad V(\theta,u)=\sum_{i\in\mathbb Z}\lambda^i
+ [\cos(2\pi(\theta_i+b^iu))-\cos(2\pi\theta_i)].
+\]
+On $|u|\le1$ this is continuous by uniform convergence of both tails. It differs from $\lambda^{-n}(W(x+b^{-n}u)-W(x))$ by $O((b\lambda)^{-n})$. Splitting at $b^i|u|=1$ shows that $|V(\theta,u)|\le C|u|^\alpha$ and $|W(x+u)-W(x)|\le C|u|^\alpha$, uniformly in the phases.
+
+Fix a continuous cutoff $0\le\psi\le1$ equal to one on $[-3,3]$, vanishing outside $[-4,4]$, and let
+\[
+ B_q(\theta)=2\int_{-1}^1\psi(V(\theta,u)/\lambda^q)\,du,
+ \qquad f_q(\theta)=-\log\min(1,B_q(\theta)).
+\]
+The H\"older bound near $u=0$ gives a positive lower bound on $B_q$ for each fixed $q$, so $f_q$ is continuous and bounded. The definition of $\mathcal S_s$ implies, by restricting the negative logarithm to the good set,
+\[
+ \liminf_{q\to\infty}q^{-1}\inf_{\omega\in\T^{\mathbb Z}}
+ \int_{H} f_q(z+\omega)\,dm_{H}(z)\ge s\log(1/\lambda).\tag{G1}
+\]
+Work on a translated unit interval with $X$ uniform there and $Y=W(X)$. Denote by $X_k$ the index of the horizontal dyadic interval of length $2^{-k}$ containing $X$, using the left endpoint of the unit interval as origin. Write $Y_j=\lfloor2^j(Y-T)\rfloor$ for a vertical origin $T$ fixed below. Let $a=\log_2(1/\lambda)$, $d_0=\log_2 b$ and
+\[
+ k_n=\lceil d_0 n\rceil,\qquad j_n=\lfloor a n\rfloor .
+\]
+Take every finitely supported integer vector $h=(h_i)$ and its
+ambient character $\chi_h(\theta)=\exp(2\pi i\sum_i h_i\theta_i)$
+on $\T^{\mathbb Z}$. Its restriction to $H$ is nontrivial precisely
+when $D=\sum_i h_i b^i\ne0$. For each such $h$,
+\[
+ \chi_h(\theta_{q\ell}(x))
+  = \exp\!\left(2\pi i\sum_i h_i\varphi_{q\ell+i}\right)
+    \exp(2\pi i D b^{q\ell}x).
+\]
+The first factor is deterministic and has modulus one. On the unit input
+interval, integrating the square of the full character average gives
+\[
+ \int \left|\frac{1}{N}\sum_{\ell=1}^N \chi_h(\theta_{q\ell}(x))\right|^2
+ dx \le \frac{C_{h,b,q}}{N}.
+\]
+Indeed, the diagonal terms contribute $1/N$. The absolute values of
+the off-diagonal integrals are bounded by $1/(\pi|D|\,|b^{qv}-b^{qw}|)$, whose sum over $v>w\ge1$ converges. Chebyshev and Borel--Cantelli along $N=j^2$ followed by interpolation show convergence to zero almost surely. This holds simultaneously for all the countably many characters and $q$. On any interval of scale indices starting and ending at fixed positive multiples of $N$ up to $O(1)$, with length comparable to $N$, the same character averages vanish by subtraction. Every weak limit of the empirical measures on such a window is $H$-translation invariant, since characters nontrivial on $H$ integrate to zero. Its integral of $f_q$ is at least $\inf_\omega\int_H f_q(z+\omega)\,dm_H$ by Haar averaging.
+For zero phases take the zero extension to negative indices. Then every
+$\theta_n(x)$ belongs to $H$. Every such window limit is supported on
+$H$ and invariant under all its translations, so it is Haar probability
+on $H$. This holds for Lebesgue-almost every $x$ on the chosen interval.
+
+Evaluate conditional masses at the labels realized at $x$. The horizontal cell at depth $k_n$ has length in $(b^{-n}/2,b^{-n}]$. Matching the vertical depth-$j_{n+q}$ label at a second point $x+b^{-n}u$ in that cell forces $|u|\le1$ and $|W(x+b^{-n}u)-W(x)|\le2\lambda^{n+q}$. Normalizing by the horizontal cell length produces a factor at most two in $du$. For each fixed $q$ and all large $n$ the tail bound gives
+\[
+ -\log\mathbb P(Y_{j_{n+q}}\mid X_{k_n})\ge f_q(\theta_n(x)).
+ \tag{G2}
+\]
+For the coarser label set $g(t)=-\log\operatorname{dist}(t,\mathbb Z)$. By H\"older continuity an interval inside the horizontal cell of length at least $C b^{-n}\operatorname{dist}(2^{j_n}(Y-T),\mathbb Z)^{1/\alpha}$ stays in the same vertical cell. Hence
+\[
+ -\log\mathbb P(Y_{j_n}\mid X_{k_n})
+  \le C_0+\alpha^{-1}g(2^{j_n}(Y-T)).
+ \tag{G3}
+\]
+The ergodic theorem for doubling applied to $g^2\in L^1(\T)$ and Fubini in $T$ give one $T$ for which, almost surely in $x$, $\sum_{j=0}^K g(2^j(Y-T))^2\le C_1K$ for all large $K$; $C_1$ can be fixed larger than $\int_\T g^2$.
+
+Choose $q$ with $a q>1$ and $d_0 q>1$. At target depth $K$ use the consecutive multiples $n_0,\dots,n_\ell$ of $q$ beginning with the first $k_{n_0}\ge K$ and ending with the last $j_{n_\ell}\le K$. Then
+\[
+ \ell=K(1/a-1/d_0)/q+O(1).
+\]
+Let $p_i$ be the conditional law of the next vertical label given $(Y_{j_{n_i}},X_K)$, and $r_i$ its law given $(Y_{j_{n_i}},X_{k_{n_i}})$. The latter fields $\mathcal F_i$ are increasing, and for the realized labels
+\[
+ \mathbb E(p_i/r_i\mid\mathcal F_i)
+   =\sum_{z:r_i(z)>0}p_i(z)\le1 .
+\]
+The product of preceding ratios is measurable in $\mathcal F_i$. Markov's inequality for the product, followed by Borel--Cantelli with thresholds $\exp(\epsilon K)$ for rational $\epsilon>0$, gives $\sum_i-\log p_i\ge\sum_i-\log r_i-o(K)$ almost surely. The ratio of fine to coarse masses conditional on $X_{k_{n_i}}$ equals the realized $r_i$. By (G2), (G3) and Cauchy--Schwarz,
+\[
+ \sum_i-\log r_i
+ \ge \sum_{i=0}^{\ell-1}f_q(\theta_{n_i}(x))
+          -C_0\ell-\alpha^{-1}\sqrt{\ell C_1K}.
+\]
+Since $j_{n_i}$ are distinct and at most $K$, the boundary loss just
+displayed, divided by $K$, has limsup $O(q^{-1}+q^{-1/2})$ at fixed $q$.
+The graph mass of the realized depth-$K$ square is at most $2^{-K}\prod_i p_i$ by the conditional chain rule. Apply the character average bound to this window at fixed $q$, divide by $K\log2$, then let $q\to\infty$ and use (G1). The lower dyadic local dimension is at least $1+s(1-\alpha)$ almost everywhere. The strict order of these limits permits all the constants at a fixed block length to depend on it.
+
+For each smaller exponent $t$, a restriction of positive mass to points whose dyadic cell masses are at most $2^{-kt}$ at all sufficiently large depths gives the Hausdorff lower bound, since any ball of comparable radius meets boundedly many cells. This also applies after restricting to any positive-length input interval. The H\"older cover needs at most $C2^{K(2-\alpha)}$ squares of side $2^{-K}$ on a unit interval. The total mass of squares of mass less than $2^{-K(2-\alpha+\epsilon)}$ is summable in $K$. When $s=1$, Borel--Cantelli thus gives equality of dyadic information rates. The mass of points whose square has a neighbor at least $2^{K\epsilon}$ times heavier is at most $8\,2^{-K\epsilon}$ by summing over neighboring square pairs. Comparing balls and neighboring squares now gives exact dimensionality in the Euclidean metric. Restriction of measure to subintervals preserves this almost-everywhere local dimension by differentiation.
+\end{proof}
+
+
+
+\paragraph{Dependence of the exceptional set on the phases.}
+Fix an interior point $x_0$ of a bounded input interval $I$ and choose
+$\varphi_j=-b^j x_0\bmod 1$. Every summand attains its maximum at $x_0$.
+For $0<|t|\le1/4$, choose $k\ge0$ with $1/(4b)<b^k|t|\le1/4$.
+All terms in $W_\varphi(x_0)-W_\varphi(x_0+t)$ are nonnegative. The
+$k$th term is at least $\lambda^k(1-\cos(\pi/(2b)))\gg_b |t|^\alpha$.
+Together with the H\"older upper bound this gives
+$W_\varphi(x_0)-W_\varphi(x_0+t)\asymp |t|^\alpha$.
+Consequently the graph measure of the radius-$r$ ball centered at
+$(x_0,W_\varphi(x_0))$ is comparable to $r^{1/\alpha}$ as $r\downarrow0$:
+the horizontal preimage lies between centered intervals of radii
+$c r^{1/\alpha}$ and $C r^{1/\alpha}$. Its local dimension at this
+point is $1/\alpha>2-\alpha$. Thus the almost-everywhere conclusion of
+Theorem~\ref{thm:main} holds with the phase sequence fixed first.
+
+\section{Information from the finite predecessor choices}\label{app:pred}
+For any primitive irreducible polynomial with absolute constant coefficient $p\ge2$ we establish the conditional and anchored estimates of the opening section. Take $\gamma=(b\lambda)^{-1}$ in the application to slopes of the original graph.
+\subsection{Dimension of the conditional slope measures}\label{sec:slopes}
+Let $b>1$ be real algebraic of degree $d$, with primitive minimal
+polynomial $a_0+\cdots+a_dX^d$. Set $p=|a_0|$, $c=1/b$ and take
+$0<\gamma<1$. Suppose $p\ge2$. Use Haar probability on the phase
+group with this polynomial recurrence. Its central block
+$w=(z_0,\ldots,z_{d-1})$ is uniform on $\mathbb T^d$. Given $w$,
+one samples a predecessor with $p$ equiprobable branches. The new
+state is the block $(z_{-1},z_0,\ldots,z_{d-2})$ and its unconditional
+law remains Haar. Iterating this rule gives the conditional past.
+Indeed a finite admissible path extends in both directions by solving
+the circle equations, and the Haar fibers have equal weights.
+The annihilator description follows from Gauss's lemma applied to the
+primitive minimal polynomial. In particular the shift and every nonzero
+power of it are ergodic: its dual action on nonzero elements of the
+additive group $\mathbb Z[b,b^{-1}]$ is multiplication by $b$, with
+no finite orbit.
+
+Fix a real lift $\widetilde w=(\widetilde w_0,\ldots,\widetilde w_{d-1})$
+of the central block. At a node the digit $i\in\{0,\ldots,p-1\}$
+selects the predecessor
+\[
+ y=\frac{i-\sum_{j=1}^d a_j\widetilde w_{j-1}}{a_0}.
+\]
+Use $(y,\widetilde w_0,\ldots,\widetilde w_{d-2})$ as the inherited
+real lift for the next step (just $(y)$ when $d=1$).
+All suffix identities with unchanged digits use that inherited lift.
+If $\widetilde w$ is replaced by $\widetilde w+k$ with $k\in\mathbb Z^d$,
+the same predecessor modulo one has digit
+$i'\equiv i+\sum_{j=1}^d a_j k_{j-1}\pmod p$: the two numerators then
+differ by a multiple of $a_0$. Repeating this argument at each child
+permutes the digits at that node and preserves every cylinder's
+probability and phase values. Thus conditional laws are defined on the
+torus. Pathwise derivatives below are computed on the real cover with
+the digits fixed. On the real direction
+$v=(1,b,\ldots,b^{d-1})$, $z_{-l}(w+tv,I)=z_{-l}(w,I)+c^l t$
+modulo one for a fixed lifted code, by the polynomial relation.
+Set $g_j=\gamma c^j$ and
+\[
+ F_j(w,I)=\sum_{l\ge1}g_j^{l-1}\sin(2\pi z_{-l}(w,I)+j\pi/2),
+ \qquad \nu^j_w=\operatorname{law}_I F_j(w,I),\quad j\ge0 .
+\]
+Let $S_j^n$ denote the first $n$ terms. Along $v$, all derivatives
+converge uniformly and $\partial_v F_j=2\pi c F_{j+1}$, with the
+same identity for truncations. We write $w_n$ for the state reached
+after $n$ predecessors. For every infinite continuation $I'$ and
+prefix $u$ of length $n$,
+\[
+      F_j(w,uI')=S_j^n(w,u)+g_j^n F_j(w_n,I').
+\]
+
+\begin{theorem}[Conditional slope dimension]\label{thm:algebraic-slope-dimension}
+For every $j\ge0$ and almost every $w$, the conditional measure
+$\nu^j_w$ is exact dimensional, with dimension
+\[
+                 s_j=\min\{1,\log p/\log(1/g_j)\}.
+\]
+\end{theorem}
+\begin{proof}
+At depth $k$ the support is covered by $p^k$ intervals of length at most
+$2g_j^k/(1-g_j)$. The uniform code also puts mass at least $p^{-k}$
+in the ball of this radius about each sampled point. Together with the
+usual almost-everywhere upper local dimension bound of one on the line,
+this gives the required upper bound. We prove the lower bound.
+
+\par\smallskip\noindent\textbf{Initialization.}\enspace
+Take $j$ large enough that $g_j/(1-g_j)<\sin(\pi/p)$. For any two
+codes differing at the first digit, let $f(w)$ be their difference
+of $F_j$ values. In $(f,(2\pi c)^{-1}\partial_v f)$ the leading
+vector has norm at least $2\sin(\pi/p)$, by the quadrature of sine
+and cosine. The $l$th vector has norm at most $2g_j^{l-1}$, since
+its second coordinate carries an additional factor $c^{l-1}$.
+Hence the norm of the full pair is bounded away from zero. For all
+small $r$, $|f|\le r$ forces $|\partial_v f|\ge\epsilon>0$
+uniformly over these pairs.
+
+Here and below we use the bound
+\[
+ \operatorname{Leb}\{w\in[0,1)^d:|f(w)|\le r,
+                       |\partial_v f(w)|>e\}\le C_e r .
+\]
+For all functions at issue $|\partial_v^2 f|$ is uniformly bounded.
+Slice the unit cube into intervals parallel to $v$, using its first
+coordinate as the interval parameter. Each has length at most one in
+this parameter. Split each interval into boundedly many pieces so small
+that the derivative varies by less than $e/2$. On any piece containing
+a counted point it has constant sign and modulus at least $e/2$.
+The mean value theorem and integration over the bounded set of transverse
+parameters give the claim. Real lifts allow this argument without
+regularity assumptions in transverse directions.
+
+Two independent codes share exactly $k$ initial digits with probability
+$p^{-k}(1-p^{-1})$. After that prefix the difference of the two
+functions is $g_j^k$ times a fresh difference at $w_k$. Averaging the
+shared code and $w$ restores the uniform law for $w_k$ modulo one.
+Lifts may be recoded there while preserving the condition of first
+disagreement. The preceding sublevel bound gives
+\[
+   \int (\nu^j_w\otimes\nu^j_w)\{|x-y|\le r\}\,dw
+       \le C\sum_{k\ge0}p^{-k}\min(1,r g_j^{-k}).
+\]
+This is $O_t(r^t)$ for every $t<s_j$. Thus for almost every $w$ the
+$t'$-energy of $\nu^j_w$ is finite for every $0<t'<s_j$, by taking
+$t'<t<s_j$ and integrating in the radius. This proves the lower
+local dimension bound at these large indices.
+
+\par\smallskip\noindent\textbf{The induction step.}\enspace
+Fix $j$. Write $g=g_j$, $h=g_{j+1}$ and suppose that $\nu^{j+1}_w$ has
+lower local dimension at least $s>0$ almost everywhere for almost every
+$w$. Choose
+\[
+       0<t<\min\{1,s\log(1/h)/\log(1/g)\}.
+\]
+For a block length $n$, join two length-$n$ prefixes at $w$ if
+\[
+   |\partial_v S_j^n(w,u)-\partial_v S_j^n(w,v')|
+                     \le (2C+1)h^n ,
+\]
+where $C$ bounds $h^{-n}|\partial_v(F_j-S_j^n)|$. Count a prefix
+as its own neighbor. Distinct full paths whose prefixes are not
+neighbors have directional derivative difference greater than $h^n$.
+Call a prefix bad if its number of neighbors exceeds $p^n g^{tn}$.
+For a sampled infinite path $I$ all extensions of every neighbor
+of its prefix have $F_{j+1}$ value within $C' h^n$ of
+$F_{j+1}(w,I)$. This follows from the derivative identity for
+truncations and the uniform tail bound. Thus, pointwise, the degree
+divided by $p^n$ is at most
+$\nu^{j+1}_w([F_{j+1}(w,I)-C'h^n,F_{j+1}(w,I)+C'h^n])$.
+The local dimension hypothesis and the strict inequality defining $t$
+show that the Haar probability $e_n$ of a bad prefix tends to zero.
+
+\par\smallskip\noindent\textbf{Correlation estimate for a prescribed sequence of blocks.}\enspace
+For a binary word $P$ of length $k$, let $\mu_{w,P}$ be the
+unnormalized pushforward under $F_j(w,\cdot)$ of paths with those
+successive good or bad statuses in blocks of length $n$. Marking a
+block only uses the state and the digits in that block. For $r>0$ set
+$U_r=\mathrm{1}_{[0,r]}/r$ and
+\[
+       E_P(r)=\int\|U_r*\mu_{w,P}\|_2^2\,dw .
+\]
+The correlation kernel $K_r=U_r*U_r(-\cdot)$ equals
+$r^{-1}(1-|x|/r)_+$. Write $P'$ for $P$ without its initial status.
+We claim
+\[
+ E_P(r)\le C_n+A E_{P'}(r/g^n),\qquad
+ A=\begin{cases}g^{-n(1-t)},&\text{initial status good},\\
+                  g^{-n},&\text{initial status bad}.
+    \end{cases}                                                     \tag{*}
+\]
+Expand the squared norm according to the two first prefixes. For
+pairs which are not neighbors at $w$, discard all path restrictions
+and retain the necessary condition that the full directional
+derivative difference is greater than $h^n$. At fixed two full
+codes, the directional sublevel estimate bounds the integral of
+$K_r(F_j(w,I)-F_j(w,I'))$ on that set by $C_n$, uniformly in the
+codes and $r$. Integrating the independent codes proves the first
+term in $(*)$.
+
+For neighboring pairs, at fixed $w$, bound each scalar product
+of the smoothed child measures by half the sum of their squared
+norms. Both children have the prescribed status. Each diagonal
+norm therefore occurs with multiplicity at most $p^n g^{tn}$ in
+the good case and at most $p^n$ in the bad case. Each pair has
+weight $p^{-2n}$. In a diagonal norm, translating the prefix and
+scaling by $g^n$ produce $g^{-n}\|U_{r/g^n}*\mu_{w_n,P'}\|_2^2$.
+Drop the initial status restriction and sum all prefixes. Their
+uniform weights $p^{-n}$ together with $dw$ give Haar $dw_n$.
+The status of the remaining blocks respects relabeling when the lift
+of $w_n$ is changed. This proves $(*)$.
+
+\par\smallskip\noindent\textbf{From typical block sequences to local dimension.}\enspace
+Fix $n$ sufficiently large that $e_n<1/2$ and choose $e_n<\eta<1/2$.
+By ergodicity of the shift by $n$, almost every path has at most
+$\eta k$ bad blocks among its first $k$ blocks for every sufficiently
+large $k$. For $k_0\ge1$ restrict the original path measure to paths
+meeting this condition simultaneously for all $k\ge k_0$; write
+$\mu_{w,k_0}^*$ for its vertical pushforward at $w$. At $r_k=g^{nk}$
+and for a status word with at most $\eta k$ bad blocks, iteration
+of $(*)$ yields
+\[
+  E_P(2r_k)\le C_n(k+1)g^{-nk(1-t+t\eta)} .
+\]
+Indeed all coefficients $A$ in $(*)$ are at least one and the
+terminal energy at radius $2$ is bounded. There are at most
+$\exp(k H(\eta))$ such words, where
+$H(\eta)=-\eta\log\eta-(1-\eta)\log(1-\eta)$. For $k\ge k_0$ the
+restricted measure is dominated by the sum over these words. The
+triangle inequality in $L^2(dw\,dy)$ bounds its squared norm by the
+preceding bound times $\exp(2kH(\eta))$. The kernel $K_{2r_k}$ is
+at least $1/(4r_k)$ on $[-r_k,r_k]$. Consequently
+\[
+ \int (\mu^*_{w,k_0}\otimes\mu^*_{w,k_0})\{|x-y|\le r_k\}\,dw
+ \le 4 C_n(k+1)r_k^{t(1-\eta)-2H(\eta)/(n\log(1/g))}.
+\]
+Since the $r_k$ form a geometric progression, for almost every $w$
+this measure has finite $s'$-energy for each positive $s'$ strictly
+below the exponent displayed. Its lower local dimension is at least
+$s'$ almost everywhere. For almost every $w$, the measures
+$\mu^*_{w,k_0}$ increase to $\nu^j_w$ by the ergodic conclusion and
+disintegration. Differentiation of these submeasures relative to
+$\nu^j_w$ transfers their almost-everywhere lower bounds to
+$\nu^j_w$: almost every point has positive Radon--Nikodym derivative
+for some $k_0$. As $n\to\infty$ one can choose $\eta\downarrow0$.
+This proves the lower bound $t$. Taking a countable sequence of such
+$t$ proves
+\[
+  \underline{\dim}_{\mathrm{loc}}\nu^j_w
+       \ge \min\{1,s\log(1/g_{j+1})/\log(1/g_j)\}
+       \quad\text{almost everywhere}.
+\]
+Initialize at a sufficiently large derivative index and iterate
+downwards. At each step $g_{j+1}<g_j$ and the asserted $s_j$ follows.
+\end{proof}
+
+For the classical two-sided increment one has
+$\Theta_0=2\pi\gamma F_0$ and $\gamma=1/(b\lambda)$.
+Thus the conditional slope has dimension one whenever $p\gamma\ge1$.
+In particular, every rational $b=P/Q>1$ in lowest terms satisfies
+this for every $1/b<\lambda<1$, since $p\gamma=Q/\lambda>1$.
+
+\par\smallskip\noindent\textbf{Uniformity under arbitrary deterministic phases.}\enspace
+For a phase string $\phi=(\phi_l)_{l\ge1}$, replace every
+$2\pi z_{-l}$ by $2\pi(z_{-l}+\phi_l)$ throughout and denote the
+resulting laws by $\nu^{j,\phi}_w$. For every $j$, every $s'<s_j$
+and each fixed $A>0$, one has
+\begin{equation}\label{eq:uniform-slope-information}
+ \lim_{r\downarrow0}\sup_\phi\int
+  \nu^{j,\phi}_w\{y:\nu^{j,\phi}_w([y-Ar,y+Ar])>r^{s'}\}\,dw=0 .
+\end{equation}
+To prove this, use the same induction. At high derivative index the
+first-digit quadrature and sublevel bounds are uniform in $\phi$.
+The common-prefix conditioning changes the remaining phase string
+to its deterministic suffix. The resulting integrated pair bound
+and Markov's inequality give \eqref{eq:uniform-slope-information}.
+At a lower derivative index the induction hypothesis, applied to
+$C'h^n$ as above with an exponent strictly between
+$t\log(1/g)/\log(1/h)$ and $s$, makes the bad-block probability
+at most $e_n\to0$, uniformly over all starting phase strings.
+Recursion $(*)$ is unchanged with the suffix of $\phi$ in the
+remaining energy. Its sliced sublevel constant does not depend on
+$\phi$. Every $n$-block therefore has bad probability at most $e_n$,
+irrespective of the block position, by stationarity of the underlying
+Haar states.
+
+For given $k$ write $\widetilde\mu_w$ for the submeasure of paths
+having at most $\eta k$ bad blocks among their first $k$. The
+discarded mass, averaged over $w$, is at most $e_n/\eta$ by Markov's
+inequality. Set $r_k=g^{nk}$ and
+$t_*=t(1-\eta)-2H(\eta)/(n\log(1/g))$. The prescribed-word
+estimate gives
+\[
+ \int(\widetilde\mu_w\otimes\widetilde\mu_w)
+       \{|x-y|\le A' r_k\}\,dw\le C_{n,A'}(k+1)r_k^{t_*}
+\]
+for each fixed $A'>0$, by starting the recursion at $2A'r_k$.
+For each $w$, apply Lemma~\ref{lem:full-ball} with
+$\nu=\nu^{j,\phi}_w$, retained measure $\widetilde\mu_w$, $R=A r_k$
+and $\tau=r_k^{s'}$. Averaging over $w$ bounds the probability in
+\eqref{eq:uniform-slope-information} by
+\[
+ e_n/\eta+3/M+M C_{n,A}(k+1)r_k^{t_*-s'} .
+\]
+Thus if $s'<t_*$ the limsup of
+the probability in \eqref{eq:uniform-slope-information} on this
+scale sequence is at most $e_n/\eta+3/M$. The same conclusion holds
+between consecutive scales by increasing the fixed radius constant
+by $g^{-n}$. Here $n$ stays fixed as $k\to\infty$. Now choose $t$
+strictly between the desired $s'$ and the upper endpoint in the
+induction step. Send $n\to\infty$ with $\eta\to0$ and
+$e_n/\eta\to0$, and then send $M\to\infty$. This proves the
+uniform information bound. The changing submeasure in this argument
+is used only at its own scale.
+
+In Theorem~\ref{thm:conditional-graph} the central block can be
+$w\in\mathbb T^d$ throughout. The proof tests the conditional mass
+only at finitely many radii $C'g_0^{d_k}$ with $d_k\to\infty$.
+The vanishing exceptional probability there follows from
+\eqref{eq:uniform-slope-information}, uniformly for the phase strings
+at the different starting depths. Prefix sums carry the appropriate
+suffix phases, and the exact increment identity holds along $v$.
+Thus the lower bound for the integral of the entropy cutoff holds
+uniformly on all translates of the Haar phase group. For each fixed
+deterministic two-sided phase sequence, for Lebesgue-almost every
+physical starting point $x$, every weak limit of the empirical measures
+of $\theta_n(x)$ on the scale windows of Appendix~\ref{app:graph}
+is invariant under translation by $H$. Indeed, each character nontrivial
+on $H$ has zero time-average by the mean-square lacunary estimate
+with coefficients of modulus one. Such a limit is a mixture of
+Haar measures on translates of $H$, by averaging continuous
+functions over $H$. The same lower bound for every coset therefore
+applies to each weak limit. This gives the graph lower bound
+$1+s_0(1-\alpha)$ for each deterministic choice of phases and
+the full graph and graph-measure conclusion when $p\gamma\ge1$.
+
+\subsection{From conditional slopes to secant probabilities}\label{sec:secant}
+We use $c=1/b$, $\gamma=c/\lambda$, and the Haar environment of the
+preceding section. Write $d_b=[\mathbb Q(b):\mathbb Q]$ for the degree.
+Given the central block $w\in\T^{d_b}$, any past prefix
+of length $n$ and any future prefix of length $m$ extend jointly:
+the recurrence uses $d_b+1$ consecutive coordinates, so the central
+block supplies all boundary data on both sides. There are
+$p^n|a_{d_b}|^m$ such pairs. Projection of conditional Haar measure to
+this finite fiber gives equal mass $p^{-n}|a_{d_b}|^{-m}$ to every pair.
+This proves conditional independence for the two infinite branches
+by their cylinders. The block $w_n$ reached after $n$ past steps has
+Haar law by shift invariance; $z_{-n}$ denotes its first coordinate.
+The formulas below display zero phases. For prescribed phases add the
+corresponding shift to each sine and use its suffix at every new block.
+For $|u|\le1$, write the contribution of the negative indices to
+the two-sided increment as $-u\Theta_u(w,I)$, where
+\[
+ \Theta_u=2\pi\sum_{j\ge1}\gamma^j\operatorname{sinc}(\pi c^ju)
+          \sin\bigl(2\pi(z_{-j}+c^ju/2)\bigr),
+ \qquad \operatorname{sinc}(v)=\sin(v)/v,\quad \operatorname{sinc}(0)=1 .
+\]
+Write $T_u^n$ for its first $n$ terms. There is a uniform $C_0\ge1$ with
+\[
+ |\Theta_u|\le C_0,\qquad
+ |\Theta_u-T_u^d|\le C_0\gamma^d,\qquad
+ |T_u^d-T_0^d|\le C_0|u|\quad(d\ge0).
+\]
+The third inequality follows by summing $O(\gamma^jc^j|u|)$.
+At any prefix one has the exact identity
+\[
+ T_u^{n+d}(w,I)=T_u^n(w,I)+
+     \gamma^n T_{c^nu}^d(w_n,\sigma^n I).
+\]
+Denote by $\nu_w$ the conditional law of $\Theta_0(w,I)$.
+
+\begin{theorem}[Conditional slopes and graph dimension]\label{thm:conditional-graph}
+Suppose $0<s\le1$ and for almost every $w$,
+\[
+ \liminf_{a\downarrow0}
+ \frac{\log\nu_w([y-a,y+a])}{\log a}\ \ge s
+ \qquad\text{for $\nu_w$-almost every $y$.}
+\]
+For the classical zero-phase cosine series at base $b$, the graph
+on every interval of positive length has Hausdorff dimension at least
+$1+s(1-\alpha)$, where $\alpha=-\log\lambda/\log b$. At $s=1$ the
+dimension equals $2-\alpha$ and the graph lift of Lebesgue measure
+on each bounded interval is exact dimensional.
+\end{theorem}
+\begin{proof}
+Fix $0<\sigma<s$, and choose $0<\kappa=1/K<1/2$ with $K$ an integer.
+All constants in the proof may depend on these choices.
+Put $a_0=\log\gamma/\log(c\gamma)\in(0,1)$ and take $L$ fixed
+with $a_0^L\le\kappa$. For a small target radius $r>0$, divide
+$r^{1-\kappa}<|u|\le1$ into the $K-1$ bands
+\[
+    r^{(h+1)\kappa}<|u|\le r^{h\kappa},\qquad 0\le h\le K-2.
+\]
+In band $h$ write $\Delta=r^{1-(h+1)\kappa}$. Thus $r/|u|\le\Delta$.
+Choose $n_L=\lfloor\log\Delta/\log\gamma\rfloor$ and define the
+preceding depths by $n_{j-1}=\lceil a_0 n_j\rceil$. As $r\downarrow0$
+all $n_j$ and every difference $d_j=n_j-n_{j-1}$ tend to infinity
+in each band. At $n=n_{j-1}$, $d=d_j$, we have
+\[
+     c^n\le\gamma^d,\qquad
+     \Delta\le\gamma^{n_L}\le\gamma^{-1}\Delta,\qquad
+     n_0\le\kappa n_L+(1-a_0)^{-1}.
+\]
+
+Choose $A=1+C_0$ and a fixed large $D$, for instance $D=5+8C_0$.
+Call a length-$(n+d)$ prefix good at step $(n,d)$ when
+\[
+ \nu_{w_n}\!\left([T_0^d(w_n,\sigma^nI)-D\gamma^d,
+                         T_0^d(w_n,\sigma^nI)+D\gamma^d]\right)
+                 \le \gamma^{\sigma d}.
+\]
+This condition is determined by the prefix, including $w$. For a random
+prefix the center here is within $C_0\gamma^d$ of
+$\Theta_0(w_n,\sigma^nI)$. The joint law of
+$(w_n,\Theta_0(w_n,\sigma^nI))$ is $dw\,d\nu_w(y)$.
+In particular, for every starting depth $n$ the probability of a bad
+prefix is at most
+\[
+ \int_{\mathbb T^{d_b}}\!\int
+ {\bf 1}_{\{\nu_w([y-(D+C_0)\gamma^d,y+(D+C_0)\gamma^d])
+                         >\gamma^{\sigma d}\}}\,d\nu_w(y)\,dw .
+\]
+The integral is independent of $n$. Its integrand tends to zero at
+almost every fixed pair $(w,y)$ by the dimension hypothesis and
+$\sigma<s$. Dominated convergence therefore gives a probability tending
+to zero even when $n$ varies with $d$. If $E_r$ denotes the union of the bad
+events over all bands and their steps, $m_H(E_r)=o(1)$.
+There are only $(K-1)L$ such events, and $E_r$ depends solely
+on $w$ and its past.
+
+Fix $w$, a future branch code, $u$ in the chosen band, and a target
+$y$ depending on these fixed variables. The event
+$|\Theta_u-y|\le r/|u|$ forces all prefix windows
+\[
+       |T_u^{n_j}-y|\le A\gamma^{n_j},\qquad 0\le j\le L .
+\]
+Now fix the past through depth $n=n_{j-1}$. Write
+$z=(y-T_u^n)/\gamma^n$. For every child prefix satisfying the next
+window, $|T_{c^nu}^d-z|\le A\gamma^d$, so
+$|T_0^d-z|\le(A+C_0)\gamma^d$. For every infinite extension of
+each such child,
+$|\Theta_0(w_n,\sigma^n I)-z|\le(A+2C_0)\gamma^d$.
+If any such child is good, its center $T_0^d$ therefore has a ball
+of radius $D\gamma^d$ containing the last interval; here it suffices
+that $D\ge 2A+3C_0$. The conditional probability of the union of all
+good children satisfying that window is at most $\gamma^{\sigma d}$,
+by the definition of that good child and the conditional law $\nu_{w_n}$.
+If there is no such good child, the conditional probability is zero.
+Both the good tests and the windows are measurable at their respective
+prefix depths. Iteration thus bounds the conditional probability of
+satisfying all the windows and good tests by
+\[
+        \gamma^{\sigma(n_L-n_0)}
+                  \le C\Delta^{\sigma(1-\kappa)}.
+\]
+In particular this bound applies after deleting $E_r$.
+
+Conditional on the independent future code, the nonnegative-index
+contribution to $V(z,u)$ is a function of $w,u$ and that code.
+We can use its quotient by $u$ as the target $y$, then average over
+$w$ and the code. Integration on band $h$ multiplies the last
+estimate by at most $2r^{h\kappa}$. Its exponent of $r$ is
+\[
+    h\kappa+(1-(h+1)\kappa)\sigma(1-\kappa)
+           \ge\sigma(1-\kappa)^2.
+\]
+The omitted interval $|u|\le r^{1-\kappa}$ has length $2r^{1-\kappa}$.
+Together this gives
+\[
+    \int_{H\setminus E_r}\int_{-1}^1
+           \mathrm{1}_{\{|V(z,u)|\le r\}}\,du\,dm_H(z)
+       \le C r^{\sigma(1-\kappa)^2},\qquad m_H(E_r)=o(1).
+\]
+In the graph entropy estimate take the ceiling for horizontal dyadic
+depths, so that normalized shifts obey $|u|\le1$, and take $r=4\lambda^k$.
+The continuous cutoff $B_k$ of Appendix~\ref{app:graph} is dominated by twice the
+integral in $u$ above. Jensen's inequality on $E_r^c$ gives
+\[
+ \int_H-\log\min(1,B_k)\,dm_H
+     \ge(1-o(1))\bigl[\sigma(1-\kappa)^2
+                    k\log(1/\lambda)-O(1)\bigr].
+\]
+For zero phases and Lebesgue-almost every $x$ on the input interval,
+the empirical laws of $\theta_n(x)$ converge to $m_H$ on the windows
+used in Appendix~\ref{app:graph}. The point $x=0$, for example, has
+$\theta_n(0)=0$ at every scale when the phases and their extension are
+zero. The graph estimate uses the almost-everywhere statement because
+the natural graph measure is the image of Lebesgue measure.
+The moving-partition argument gives graph dimension at least
+$1+\sigma(1-\kappa)^2(1-\alpha)$. Let $\sigma\uparrow s$ and
+$\kappa\downarrow0$. For $s=1$ the upper covering estimate also
+gives exact dimensionality as in Proposition~\ref{prop:graph}.
+\end{proof}
+
+If the conditional laws have densities $h_w$ with
+$\int\|h_w\|_2^2\,dw<\infty$, the hypotheses hold with $s=1$.
+Moreover the probability of a bad prefix is
+$O(\gamma^{(1-\sigma)d})$, since the expected mass of a ball of
+radius $(D+C_0)\gamma^d$ at a sampled point is at most
+$2(D+C_0)\gamma^d\int\|h_w\|_2^2\,dw$ by Cauchy--Schwarz.
+Each fixed-band depth difference $d$ is bounded below by a positive
+multiple of $\log(1/r)$ for small $r$, so $m_H(E_r)=O(r^\delta)$
+for some $\delta>0$. Absolute continuity of $\nu_w$ alone already
+implies the qualitative full-dimension criterion by differentiation.
+
+
+For an arbitrary deterministic phase coset the finite-band argument uses the same conditional past tree. In each stage use the phase-shifted slope law at the new state. The uniform sampled mass estimate above makes the finitely many discarded events have total mass $o(1)$ uniformly in the coset. Given the central coordinates, the future remains independent of the past. On the retained set the averaged anchored mass is therefore $O(r^{\sigma(1-\kappa)^2})$. For $s'<\sigma(1-\kappa)^2$, Markov gives a probability at most $o(1)+O(r^{\sigma(1-\kappa)^2-s'})$ that the full anchored mass exceeds $r^{s'}$. For arbitrary fixed $T,A>0$, apply \eqref{eq:fixed-dilation} with
+$B=b$, $v=1$ and $c_j=1$. Taking $\sigma$ up to the conditional
+exponent and $\kappa$ down to zero gives $\mathcal S_{s_0}$ with $s_0=\min(1,\log p/\log(1/\gamma))$ as in Theorem~\ref{thm:algebraic-slope-dimension}.
+
+
+\section*{Manuscript preparation}
+The author used GPT (OpenAI) and Claude (Anthropic) to test conjectures,
+derive and check formulas, draft arguments, and check steps in the proposed
+proof. Both assistants also contributed to the ongoing Lean~4 formalization
+of parts of the argument. Verification of the full theorem in Lean remains
+incomplete.
+
+\begin{thebibliography}{9}
+\bibitem{mw} R. D. Mauldin and S. C. Williams, \href{https://sites.itservices.cas.unt.edu/~mauldin/papers/no60.pdf}{On the Hausdorff dimension of some graphs}, Trans. Amer. Math. Soc. 298 (1986), 793--803.
+\bibitem{hunt} B. R. Hunt, \href{https://doi.org/10.1090/S0002-9939-98-04387-1}{The Hausdorff dimension of graphs of Weierstrass functions}, Proc. Amer. Math. Soc. 126 (1998), 791--800.
+\bibitem{bbr} K. Bara\'nski, B. B\'ar\'any and J. Romanowska,
+\href{https://doi.org/10.1016/j.aim.2014.07.033}{On the dimension of
+the graph of the classical Weierstrass function}, Adv. Math. 265
+(2014), 32--59.
+\bibitem{shen} W. Shen, \href{https://arxiv.org/abs/1505.03986}{Hausdorff dimension of the graphs of the classical Weierstrass functions}, Math. Z. 289 (2018), 223--266.
+\bibitem{keller} G. Keller, \href{https://doi.org/10.1214/15-AIHP711}{A simpler proof for the dimension of the graph of the classical Weierstrass function}, Ann. Inst. Henri Poincar\'e Probab. Stat. 53 (2017), 169--181.
+\bibitem{ren} H. Ren, \href{https://doi.org/10.1016/j.aim.2024.109587}{A dichotomy for the dimension of SRB measure}, Adv. Math. (2024), article 109587.
+\bibitem{rs} H. Ren and W. Shen,
+\href{https://doi.org/10.1007/s00222-021-01060-2}{A dichotomy for the
+Weierstrass-type functions}, Invent. Math. 226 (2021), 1057--1100.
+\bibitem{lptx} J. Li, W. Pan, Y. Tong and D. Xu, \href{https://arxiv.org/abs/2608.30744}{Dimensions of surface repellers and attractors of non-linear planar IFSs}, preprint (2026).
+\end{thebibliography}
+\end{document}
