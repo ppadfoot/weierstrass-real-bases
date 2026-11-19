@@ -13,9 +13,13 @@ $$
 
 This manuscript proposes a proof that the Hausdorff dimension of its graph on every interval of positive length is $2+\log(\lambda)/\log(b)$ for every real base $b>1$, including non-integer bases. The proposed theorem also allows an arbitrary fixed sequence of phases inside the cosines. On every bounded interval of positive length it gives the same dimension for the natural graph measure, obtained by mapping uniform input on the interval to the graph.
 
-## The conjecture and earlier results
+## The Weierstrass dimension conjecture
 
-Mauldin and Williams record the real-base Weierstrass graph dimension conjecture on p. 794. Shen proved the formula for every integer base with zero phases. Hunt proved it for real bases for almost every sequence of random phases. The claim investigated here includes each non-integer base and each prescribed phase sequence, including zero phases. [Mauldin and Williams](https://sites.itservices.cas.unt.edu/~mauldin/papers/no60.pdf) · [Shen](https://arxiv.org/abs/1505.03986) · [Hunt](https://doi.org/10.1090/S0002-9939-98-04387-1) ([open PDF](https://user.eng.umd.edu/~bhunt/papers/hdimw.pdf))
+Mandelbrot conjectured the graph dimension formula above for the classical cosine series. Mauldin and Williams give the formulation for real bases on p. 794. [Ren and Shen, historical account, p. 1059](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/11971-Ren-Shen2021_Article_ADichotomyForTheWeierstrass-ty.pdf#page=3) · [Mauldin and Williams](https://sites.itservices.cas.unt.edu/~mauldin/papers/no60.pdf)
+
+### What is known after Shen’s theorem?
+
+Weixiao Shen proved the formula for every integer base $b\ge 2$ and every $1/b<\lambda<1$ in the classical zero-phase case. What happens for a non-integer base such as $b=3/2$? Hunt’s random-phase theorem gives the predicted dimension for almost every phase sequence at each real base. This preprint proposes a proof for each prescribed phase sequence, including the all-zero sequence, for every real $b>1$. [Shen](https://arxiv.org/abs/1505.03986) · [Hunt](https://doi.org/10.1090/S0002-9939-98-04387-1) ([open PDF](https://user.eng.umd.edu/~bhunt/papers/hdimw.pdf)) · [Iuzhakov, preprint v1.0.2](https://doi.org/10.5281/zenodo.24379076)
 
 For integer bases, Ledrappier related the dimension of the natural graph measure to the distribution of slopes. Ruan and Zhang proved the graph dimension formula for every integer base $b\ge7$ when the same arbitrary phase is used in every term. [Ledrappier](https://doi.org/10.1090/conm/135/1185095) · [Ruan and Zhang, Theorem 1.1](https://www.global-sci.com/ata/article/view/8206)
 
@@ -31,6 +35,8 @@ Version 1.0.1 expands the historical references, adds open copies of cited paper
 
 Timofei Iuzhakov. *Hausdorff dimension of Weierstrass cosine graphs for real bases*. Manuscript, version 1.0.2, 19 November 2026. [Version 1.0.2](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24379076) · [Citation metadata](CITATION.cff)
 
-## По-русски
+## Гипотеза Вейерштрасса о размерности графика
 
-В рукописи предложено доказательство формулы для хаусдорфовой размерности графика классической функции Вейерштрасса при любом вещественном основании $b>1$ и $1/b<\lambda<1$. Утверждение включает нецелые основания и любую заранее заданную последовательность фаз.
+Что известно после теоремы Шэня? Для классического косинусного ряда с нулевыми фазами Шэнь доказал формулу при каждом целом основании $b\ge 2$. Для нецелого основания, например $b=3/2$, возникает тот же вопрос о хаусдорфовой размерности. [Теорема Шэня](https://arxiv.org/abs/1505.03986)
+
+В рукописи предложено доказательство формулы для хаусдорфовой размерности графика классической функции Вейерштрасса при любом вещественном основании $b>1$ и $1/b<\lambda<1$. Утверждение включает нецелые основания и любую заранее заданную последовательность фаз. [Препринт, версия 1.0.2](https://doi.org/10.5281/zenodo.24379076)
