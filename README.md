@@ -39,4 +39,22 @@ Version 1.0.1 expands the historical references, adds open copies of cited paper
 
 ## Citation
 
-Timofei Iuzhakov. *Hausdorff dimension of Weierstrass cosine graphs for real bases*. Manuscript, version 1.0.2, 19 November 2026. [Version 1.0.2](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24379076) · [Citation metadata](CITATION.cff)
+### How to cite this preprint
+
+Iuzhakov, Timofei (2026). *Hausdorff dimension of Weierstrass cosine graphs for real bases* (preprint, version 1.0.2). Zenodo. https://doi.org/10.5281/zenodo.24379076
+
+[Download BibTeX](CITATION.bib) · [Citation metadata](CITATION.cff) · [GitHub release v1.0.2](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2)
+
+```bibtex
+@unpublished{iuzhakov2026weierstrass,
+  author   = {Iuzhakov, Timofei},
+  title    = {Hausdorff dimension of {Weierstrass} cosine graphs for real bases},
+  year     = {2026},
+  month    = nov,
+  note     = {Manuscript for external review, version 1.0.2, dated 19 November 2026},
+  doi      = {10.5281/zenodo.24379076},
+  url      = {https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2},
+  keywords = {classical Weierstrass function, Hausdorff dimension, non-integer bases,
+              prescribed phases, exact-dimensional measures}
+}
+```
