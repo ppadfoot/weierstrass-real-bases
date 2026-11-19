@@ -2,7 +2,7 @@
 
 **Timofei Iuzhakov** · Manuscript version **1.0.2** · 19 November 2026
 
-[Archived preprint (DOI 10.5281/zenodo.24379076)](https://doi.org/10.5281/zenodo.24379076) · [Read the paper (PDF)](iuzhakov-weierstrass-real-bases.pdf) · [LaTeX source](iuzhakov-weierstrass-real-bases.tex) · [BibTeX](CITATION.bib)
+[Article and abstract](https://ppadfoot.github.io/weierstrass-real-bases/) · [Archived preprint (DOI 10.5281/zenodo.24379076)](https://doi.org/10.5281/zenodo.24379076) · [Read the paper (PDF)](iuzhakov-weierstrass-real-bases.pdf) · [LaTeX source](iuzhakov-weierstrass-real-bases.tex) · [BibTeX](CITATION.bib)
 
 This paper addresses the **Hausdorff dimension of the graph of the classical Weierstrass function** for real, possibly non-integer bases. In the zero-phase case the function is the cosine series
 
@@ -31,12 +31,12 @@ Version 1.0.2 distinguishes the fixed contraction rate from the auxiliary parame
 
 Version 1.0.1 expands the historical references, adds open copies of cited papers and supplies a permanent citation link. The author used GPT (OpenAI) and Claude (Anthropic) to test conjectures, derive and check formulas, draft arguments, and help formalize parts of the proof in Lean 4. Machine verification of the full theorem remains incomplete. The previous release is available on [GitHub](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1) and [Zenodo](https://doi.org/10.5281/zenodo.24378509).
 
+## Verify the Zenodo preprint
+
+1. Open the [version record on Zenodo](https://zenodo.org/records/24379076). Check the author **Timofei Iuzhakov**, version **1.0.2**, and DOI **10.5281/zenodo.24379076**. To find it by subject, try [Weierstrass AND "Hausdorff dimension" in Zenodo](https://zenodo.org/search?q=Weierstrass%20AND%20%22Hausdorff%20dimension%22&sort=bestmatch).
+2. Download the PDF and LaTeX source from **Files**. Save them in the same folder as [SHA256SUMS from the GitHub v1.0.2 tag](https://raw.githubusercontent.com/ppadfoot/weierstrass-real-bases/v1.0.2/SHA256SUMS). In that folder run `shasum -a 256 -c SHA256SUMS` on macOS or `sha256sum -c SHA256SUMS` on Linux. Both filenames should be followed by `OK`. This checks that the two archived files are byte-for-byte identical to those in the tagged release.
+3. To review the mathematics, start with **Theorem 1.1**. It gives separate assertions for the graph and for the image of uniform measure on a bounded interval. Section 1.2 identifies the proof for each arithmetic type of base. Trace the lower bound through the sections and appendices cited for that type. An equation number, the hypotheses at that step, and the implication in question let another reader reproduce a proof check.
+
 ## Citation
 
 Timofei Iuzhakov. *Hausdorff dimension of Weierstrass cosine graphs for real bases*. Manuscript, version 1.0.2, 19 November 2026. [Version 1.0.2](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24379076) · [Citation metadata](CITATION.cff)
-
-## Гипотеза Вейерштрасса о размерности графика
-
-Что известно после теоремы Шэня? Для классического косинусного ряда с нулевыми фазами Шэнь доказал формулу при каждом целом основании $b\ge 2$. Рен и Шэнь доказали ту же формулу для каждого целого $b\ge2$, когда одна и та же фаза повторяется во всех членах ряда. Для нецелого основания, например $b=3/2$, возникает вопрос о хаусдорфовой размерности как при нулевых фазах, так и при заданной последовательности фаз. [Теорема Шэня](https://arxiv.org/abs/1505.03986) · [Рен и Шэнь, следствие 1.1](https://doi.org/10.1007/s00222-021-01060-2)
-
-В рукописи предложено доказательство формулы для хаусдорфовой размерности графика классической функции Вейерштрасса при любом вещественном основании $b>1$ и $1/b<\lambda<1$. Утверждение включает нецелые основания и любую заранее заданную последовательность фаз. [Препринт, версия 1.0.2](https://doi.org/10.5281/zenodo.24379076)
