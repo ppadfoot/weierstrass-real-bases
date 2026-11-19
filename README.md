@@ -31,6 +31,8 @@ Version 1.0.2 distinguishes the fixed contraction rate from the auxiliary parame
 
 Version 1.0.1 expands the historical references, adds open copies of cited papers and supplies a permanent citation link. The author used GPT (OpenAI) and Claude (Anthropic) to test conjectures, derive and check formulas, draft arguments, and help formalize parts of the proof in Lean 4. Machine verification of the full theorem remains incomplete. The previous release is available on [GitHub](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.1) and [Zenodo](https://doi.org/10.5281/zenodo.24378509).
 
+To find this preprint by subject on GitHub, search repositories for [Weierstrass non-integer dimension](https://github.com/search?q=Weierstrass+non-integer+dimension&type=repositories). The same [public repository search in JSON](https://api.github.com/search/repositories?q=Weierstrass+non-integer+dimension) gives the repository URL for readers using a search assistant.
+
 ## Verify the Zenodo preprint
 
 1. Open the [version record on Zenodo](https://zenodo.org/records/24379076). Check the author **Timofei Iuzhakov**, version **1.0.2**, and DOI **10.5281/zenodo.24379076**. To find it by subject, try [Weierstrass AND "Hausdorff dimension" in Zenodo](https://zenodo.org/search?q=Weierstrass%20AND%20%22Hausdorff%20dimension%22&sort=bestmatch).
@@ -44,6 +46,8 @@ Version 1.0.1 expands the historical references, adds open copies of cited paper
 Iuzhakov, Timofei (2026). *Hausdorff dimension of Weierstrass cosine graphs for real bases* (preprint, version 1.0.2). Zenodo. https://doi.org/10.5281/zenodo.24379076
 
 [Download BibTeX](CITATION.bib) · [Citation metadata](CITATION.cff) · [GitHub release v1.0.2](https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2)
+
+For LaTeX, paste this entry into your `.bib` file and use `\cite{iuzhakov2026weierstrass}` in the text.
 
 ```bibtex
 @unpublished{iuzhakov2026weierstrass,
