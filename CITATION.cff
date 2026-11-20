@@ -4,10 +4,10 @@ title: "Hausdorff dimension of Weierstrass cosine graphs for real bases"
 authors:
   - family-names: "Iuzhakov"
     given-names: "Timofei"
-version: "1.0.2"
-doi: "10.5281/zenodo.24379076"
-date-released: 2026-11-19
-url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2"
+version: "1.1.0"
+doi: "10.5281/zenodo.24395193"
+date-released: 2026-11-20
+url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.1.0"
 keywords:
   - classical Weierstrass function
   - Hausdorff dimension
@@ -15,14 +15,17 @@ keywords:
   - non-integer bases
   - prescribed phases
   - exact-dimensional measures
+  - Lean 4
+  - formal verification
+  - Weierstrass dimension conjecture
 preferred-citation:
   type: unpublished
   authors:
     - family-names: "Iuzhakov"
       given-names: "Timofei"
   title: "Hausdorff dimension of Weierstrass cosine graphs for real bases"
-  version: "1.0.2"
-  url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2"
-  doi: "10.5281/zenodo.24379076"
-  notes: "Manuscript for external review, version 1.0.2, dated 19 November 2026."
+  version: "1.1.0"
+  url: "https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.1.0"
+  doi: "10.5281/zenodo.24395193"
+  notes: "Preprint with a kernel-checked Lean 4 formalization, version 1.1.0, dated 20 November 2026."
   year: 2026

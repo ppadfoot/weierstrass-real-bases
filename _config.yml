@@ -1,7 +1,6 @@
-# GitHub Pages with Jekyll, built from the repository root.
-# On first public posting, enter the actual publication date as a quoted YYYY/MM/DD
-# value so the abstract page can identify the public manuscript to Google Scholar.
-# Suggested GitHub About description (searched by default):
-# Hausdorff dimension of the classical Weierstrass function graph for real and non-integer bases with prescribed phases. Research manuscript by Timofei Iuzhakov.
-# Suggested topics: weierstrass-function, hausdorff-dimension, fractal-geometry
-paper_publication_date: "2026/11/19"
+# Manuscript version date exported in the GitHub Pages citation metadata.
+paper_publication_date: "2026/11/20"
+
+# Compile the article landing page. Keep Lean project files in the tagged repository.
+exclude:
+  - formalization/

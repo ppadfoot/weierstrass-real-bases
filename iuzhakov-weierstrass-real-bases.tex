@@ -4,8 +4,8 @@
 \usepackage[margin=26mm]{geometry}
 \usepackage[hypertexnames=false,hidelinks,bookmarksnumbered=true]{hyperref}
 \hypersetup{pdftitle={Hausdorff dimension of Weierstrass cosine graphs for real bases},
-  pdfauthor={Timofei Iuzhakov}, pdfsubject={Version 1.0.2. Proposed proof of the Hausdorff dimension formula for the classical Weierstrass function at all real bases and with prescribed phases},
-  pdfkeywords={classical Weierstrass function, Hausdorff dimension, graph of the Weierstrass function, non-integer bases, prescribed phases, exact-dimensional measures}}
+  pdfauthor={Timofei Iuzhakov}, pdfsubject={Version 1.1.0. Lean 4 verification of the Hausdorff dimension formula for Weierstrass cosine graphs at every real base greater than one and with prescribed phases},
+  pdfkeywords={Weierstrass dimension conjecture, classical Weierstrass function, Hausdorff dimension, non-integer bases, prescribed phases, exact-dimensional measures, Lean 4, formal verification}}
 \setlength{\emergencystretch}{2em}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -15,18 +15,17 @@
 \newcommand{\E}{\mathbb E}
 \title{Hausdorff dimension of Weierstrass cosine graphs for real bases}
 \author{Timofei Iuzhakov}
-\date{\normalsize Version 1.0.2 --- manuscript for external review --- 19 November 2026\\[2pt]
-  {\small Version 1.0.2 on
-  \href{https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.0.2}{\underline{GitHub}}
-  and \href{https://doi.org/10.5281/zenodo.24379076}{\underline{Zenodo (DOI 10.5281/zenodo.24379076)}}}}
+\date{\normalsize Version 1.1.0 --- preprint --- 20 November 2026\\[2pt]
+  {\small \href{https://github.com/ppadfoot/weierstrass-real-bases/releases/tag/v1.1.0}{\underline{GitHub release}}
+  \quad\href{https://github.com/ppadfoot/weierstrass-real-bases/tree/v1.1.0/formalization}{\underline{Lean 4 proof}}
+  \quad\href{https://doi.org/10.5281/zenodo.24395193}{\underline{Zenodo (DOI 10.5281/zenodo.24395193)}}}}
 \begin{document}
 \maketitle
 \begin{abstract}
 For real $b>1$ and $b^{-1}<\lambda<1$, the conjectured Hausdorff dimension
 of the graph of the classical Weierstrass function
 $W(x)=\sum_{j\ge0}\lambda^j\cos(2\pi b^j x)$ is
-$2+\log\lambda/\log b$. We present a proposed proof for every real
-base. The argument also gives this dimension for the graph with any
+$2+\log\lambda/\log b$. We give a proof for every real base, formalized and checked in Lean~4. The argument also gives this dimension for the graph with any
 prescribed sequence of phase offsets and for its natural measure on
 each bounded interval of positive length. The lower bound is reduced
 to an estimate for small increments of a two-sided series. At
@@ -1545,12 +1544,23 @@ $B=b$, $v=1$ and $c_j=1$. Taking $\sigma$ up to the conditional
 exponent and $\kappa$ down to zero gives $\mathcal S_{s_0}$ with $s_0=\min(1,\log p/\log(1/\gamma))$ as in Theorem~\ref{thm:algebraic-slope-dimension}.
 
 
-\section*{Manuscript preparation}
+\section*{Formal verification and manuscript preparation}
+The accompanying Lean~4 formalization covers all eleven numbered statements,
+including the conditional slope theorems in Appendix~B.
+The main declaration
+\href{https://github.com/ppadfoot/weierstrass-real-bases/blob/v1.1.0/formalization/Weierstrass/MainTheorem.lean}{\texttt{Weierstrass.main\_theorem}}
+proves Theorem~\ref{thm:main} for every admissible real base, amplitude
+and prescribed phase sequence. It includes the exact-dimensionality
+conclusion for the natural graph measure. The
+\href{https://github.com/ppadfoot/weierstrass-real-bases/blob/v1.1.0/formalization/THEOREM_MAP.md}{\underline{theorem map}}
+identifies the Lean declaration for each numbered result. To reproduce the
+check with Lean~4.33.1 and the pinned version of mathlib, follow the
+\href{https://github.com/ppadfoot/weierstrass-real-bases/blob/v1.1.0/formalization/README.md}{\underline{verification instructions}}
+and run \texttt{python3 verify.py -{}-full} in the formalization directory.
+
 The author used GPT (OpenAI) and Claude (Anthropic) to test conjectures,
-derive and check formulas, draft arguments, and check steps in the proposed
-proof. Both assistants also contributed to the ongoing Lean~4 formalization
-of parts of the argument. Verification of the full theorem in Lean remains
-incomplete.
+derive and check formulas, draft arguments and develop the Lean~4
+formalization.
 
 \begin{thebibliography}{10}
 \bibitem{mw} R. D. Mauldin and S. C. Williams, \href{https://sites.itservices.cas.unt.edu/~mauldin/papers/no60.pdf}{On the Hausdorff dimension of some graphs}, Trans. Amer. Math. Soc. 298 (1986), 793--803.

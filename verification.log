@@ -1,0 +1,205 @@
+Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+Checking Weierstrass.Graph
+Checking Weierstrass.Anchored
+Checking Weierstrass.UpperBound
+Checking Weierstrass.LocalDimension
+Checking Weierstrass.DimensionFromMeasure
+Checking Weierstrass.Lacunary
+Checking Weierstrass.Transcendental
+Checking Weierstrass.PhaseDensity
+Checking Weierstrass.PrefixEnergy
+Checking Weierstrass.Bootstrap
+Checking Weierstrass.RealBootstrap
+Checking Weierstrass.Grid
+Checking Weierstrass.Partition
+Checking Weierstrass.FullBall
+Checking Weierstrass.RetainedLimit
+Checking Weierstrass.SparseGap
+Checking Weierstrass.FirstMoment
+Checking Weierstrass.GraphMeasureUpper
+Checking Weierstrass.GraphInformation
+Checking Weierstrass.PhaseAverages
+Checking Weierstrass.GraphWindow
+Checking Weierstrass.HarmonicArcs
+Checking Weierstrass.ProductSmallBall
+Checking Weierstrass.HarmonicSums
+Checking Weierstrass.HaarHarmonics
+Checking Weierstrass.EntropyCutoff
+Checking Weierstrass.PhysicalEntropy
+Checking Weierstrass.DyadicRates
+Checking Weierstrass.WindowBound
+Checking Weierstrass.GraphProof
+Checking Weierstrass.ConcentrationLimit
+Checking Weierstrass.MomentConvergence
+Checking Weierstrass.RayProof
+Checking Weierstrass.PredecessorProof
+Checking Weierstrass.HarmonicScale
+Checking Weierstrass.TranscendentalEstimate
+Checking Weierstrass.WindowLimit
+Checking Weierstrass.GraphEndpoint
+Checking Weierstrass.GraphComparison
+Checking Weierstrass.HeavyPairs
+Checking Weierstrass.RaySeed
+Checking Weierstrass.RaySpectrum
+Checking Weierstrass.RayIsolation
+Checking Weierstrass.RayUniform
+Checking Weierstrass.RaySeedPhysical
+Checking Weierstrass.RaySeedEstimate
+Checking Weierstrass.CriticalOccupation
+Checking Weierstrass.RaySeedDerivative
+Checking Weierstrass.RayInformation
+Checking Weierstrass.RaySeedSlope
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Checking Weierstrass.StripProof
+Checking Weierstrass.StripGaussian
+Checking Weierstrass.StripMaximal
+Checking Weierstrass.StripEnergy
+Checking Weierstrass.StripSieve
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Checking Weierstrass.StripBand
+Checking Weierstrass.StripCollision
+Checking Weierstrass.StripEstimate
+Checking Weierstrass.StripFamily
+Checking Weierstrass.RayInformationTransport
+Checking Weierstrass.AngularWeights
+Checking Weierstrass.CriticalGraph
+Checking Weierstrass.RayModulus
+Checking Weierstrass.StripLinearization
+Checking Weierstrass.StripDual
+Checking Weierstrass.SeedSampling
+Checking Weierstrass.SeedOverlap
+Checking Weierstrass.HalfSeed
+Checking Weierstrass.HalfFamily
+Checking Weierstrass.ReciprocalCover
+Checking Weierstrass.ReciprocalRegularity
+Checking Weierstrass.ReciprocalLocal
+Checking Weierstrass.ReciprocalPhases
+Checking Weierstrass.StripRates
+Checking Weierstrass.StripCenters
+Checking Weierstrass.StripRetention
+Checking Weierstrass.StripHaarTests
+Checking Weierstrass.StripComparison
+Checking Weierstrass.StripGeometry
+Checking Weierstrass.DescentDifferentiation
+Checking Weierstrass.DescentCells
+Checking Weierstrass.ReciprocalScales
+Checking Weierstrass.ReciprocalEstimate
+Checking Weierstrass.ReciprocalTransfer
+Checking Weierstrass.DescentSublevel
+Checking Weierstrass.DescentMarking
+Checking Weierstrass.StripPhysical
+Checking Weierstrass.StripHeavy
+Checking Weierstrass.StripSamples
+Checking Weierstrass.StripBootstrap
+Checking Weierstrass.StripGridRates
+Checking Weierstrass.StripBudget
+Checking Weierstrass.StripGain
+Checking Weierstrass.StripAngular
+Checking Weierstrass.DescentPartition
+Checking Weierstrass.DescentWords
+Checking Weierstrass.DescentDistant
+Checking Weierstrass.DescentWordMeasures
+Checking Weierstrass.PhysicalPair
+Checking Weierstrass.EqualPair
+Checking Weierstrass.PairGraph
+Checking Weierstrass.PrimitiveEquation
+Checking Weierstrass.AlgebraicSplit
+Checking Weierstrass.SlopeInformation
+Checking Weierstrass.SlopeRetained
+Checking Weierstrass.SlopeWordRates
+Checking Weierstrass.SlopePacking
+Checking Weierstrass.SlopeLimits
+Checking Weierstrass.SlopeDescent
+Checking Weierstrass.DescentMass
+Checking Weierstrass.DescentInheritance
+Checking Weierstrass.DescentCounts
+Checking Weierstrass.DescentBranchCost
+Checking Weierstrass.DescentCollision
+Checking Weierstrass.GraphInformationLower
+Checking Weierstrass.DescentDiscard
+Checking Weierstrass.DescentIteration
+Checking Weierstrass.DescentPacking
+Checking Weierstrass.DescentHeavy
+Checking Weierstrass.DescentReanchor
+Checking Weierstrass.DescentTheorem
+Checking Weierstrass.ExceptionalCusp
+Checking Weierstrass.BranchSecants
+Checking Weierstrass.BranchWindows
+Checking Weierstrass.BranchCylinders
+Checking Weierstrass.BranchLoss
+Checking Weierstrass.BranchMarks
+Checking Weierstrass.BranchChain
+Checking Weierstrass.BranchSolenoid
+Checking Weierstrass.BranchExtension
+Checking Weierstrass.BranchRandomization
+Checking Weierstrass.BranchGrid
+Checking Weierstrass.BranchMarkov
+Checking Weierstrass.BranchBands
+Checking Weierstrass.BranchIncrementCap
+Checking Weierstrass.BranchGridMoment
+Checking Weierstrass.BranchGridLoss
+Checking Weierstrass.BranchAnchor
+Checking Weierstrass.MainTheorem
+Checking Weierstrass.SlopeDimensionUpper
+Checking Weierstrass.SlopeQuantitative
+Checking Weierstrass.SlopeQuantitativeStep
+Checking Weierstrass.SlopePointwise
+Checking Weierstrass.ConditionalDimension
+Checking Weierstrass.BranchGraphLower
+Checking Weierstrass.BranchConditionalGraph
+Checking Weierstrass.DensityCriterion
+Checking Weierstrass.HalfSeedSampled
+Checking Weierstrass.AmplitudeStepBudget
+Checking Weierstrass.CirclePhaseStatement
+Checking Weierstrass.BranchDensity
+Checking Weierstrass.RationalSlopes
+Checking Weierstrass.BranchErgodic
+Checking Weierstrass.SlopeUniformLimit
+Checking Weierstrass
+Checking Audit
+Checked 1643 public declarations; transitive axioms: [propext, Classical.choice, Quot.sound].
+MainStatement is declared as a proof target.
+Weierstrass.MainStatement : Prop
+'Weierstrass.graph_dim_le_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.mainStatement_iff_exactDimensionOnBoundedIntervals' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Weierstrass.fullBallFromRetainedCollisions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.anchoredEstimate_transcendental' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.anchored_physical_entropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.CriticalRay.critical_linearization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.GraphInformation.exists_vertical_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.graph_of_anchored_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.graph_and_measure_transcendental' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.CriticalRay.critical_drift_anticoncentration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.RaySeed.uniform_transverse_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.StripProof.strip_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.graph_and_measure_critical_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Predecessor.haar_sharp_initial_collisions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Predecessor.haar_sharp_initial_lower_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.RaySeed.rayInformation_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.graph_and_measure_critical_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Angular.rayInformation_half_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Descent.derivative_cell_oscillation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.graph_and_measure_reciprocal_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Descent.bad_label_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.StripProof.equal_rate_angular_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.graph_and_measure_contracting_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Predecessor.slopeInformation_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.cusp_local_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.main_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Predecessor.conditional_slope_exact_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.Branch.conditional_slopes_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Weierstrass.graph_and_measure_circle_phases' depends on axioms: [propext, Classical.choice, Quot.sound]
+Checking the unconditional all-real-base theorem
+'Weierstrass.main_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
